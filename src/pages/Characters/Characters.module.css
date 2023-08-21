@@ -1,0 +1,11 @@
+.wrapper{
+    display: flex;
+}
+
+.characterCard{
+    height: 100px;
+    width: 200px;
+    background: linear-gradient(10deg, #3e1346, #77294f);
+    color: white;
+    margin: 10px
+}

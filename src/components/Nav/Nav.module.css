@@ -1,0 +1,13 @@
+.Nav{
+    display: flex;
+    align-items: center;
+    height: 70px;
+    background-color: #504a4a;
+    padding-left: 20px;
+    background: linear-gradient(10deg, #3e1346, #77294f)
+}
+
+.Logo{
+    height: 42px;
+    width: 50px;
+}
