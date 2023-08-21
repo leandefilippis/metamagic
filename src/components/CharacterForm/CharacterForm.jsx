@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getSpells, getClasses, getRaces } from '../../redux/actions/character'
-import { db } from '../../firebase/firebaseConfig'
+import { db, auth } from '../../firebase/firebaseConfig'
 import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
@@ -16,7 +16,9 @@ const AddCharacter = () => {
   const [input, setInput] = useState(initialState)
   // const classes = useSelector(state => state.character.classes)
   // const races = useSelector(state => state.character.races)
+  const user = auth.currentUser
 
+  
   useEffect(() => {
     dispatch(getSpells())
     // dispatch(getClasses())
@@ -35,15 +37,27 @@ const AddCharacter = () => {
     console.log(input)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const id = uuidv4()
-    db.collection("characters").doc(id).set({
-      id: id,
-      name: input.name,
-      spells: input.spells
-    })
-    clearInput()
+    
+    if (!user) {
+      // Si no hay user logeado
+      return;
+    }
+    
+    const characterId = uuidv4();
+
+    try {
+      await db.collection("users").doc(user.uid).collection("characters").doc(characterId).set({
+        id: characterId,
+        name: input.name,
+        spells: input.spells
+      });
+
+      clearInput();
+    } catch (error) {
+      throw new Error("Error creating the character: ", error);
+    }
   }
 
   

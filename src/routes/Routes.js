@@ -5,8 +5,18 @@ import Home from '../pages/Home/Home';
 import Create from '../pages/Create/Create';
 import Characters from '../pages/Characters/Characters';
 import Login from "../pages/Login/Login";
+import { setUser } from '../redux/slices/authSlice';
+import { useDispatch } from "react-redux";
 
 export const AppRoutes = () => {
+    const dispatch = useDispatch()
+
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+        const user = JSON.parse(storedUser); // Dispatch de una acción en Redux para actualizar el estado de autenticación
+        dispatch(setUser(user))
+    }
+
     return (
         <Router>
             <Nav />

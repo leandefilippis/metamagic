@@ -21,10 +21,14 @@ const SPELLS_URL = "https://www.dnd5eapi.co/api/spells"
 // const CLASSES_URL = "https://www.dnd5eapi.co/api/classes"
 // const RACES_URL = "https://www.dnd5eapi.co/api/races"
 
-export const getCharacters = () => async (dispatch) => {
+export const getCharacters = () => async (dispatch, getState) => {
     dispatch(setCharactersStart())
     try {
-        db.collection(types.CHARACTERS).onSnapshot((querySnapshot) => {
+
+        const userId = getState().auth.user.uid; // Agarro el ID del usuario autenticado
+        const charactersRef = db.collection('users').doc(userId).collection('characters'); // Refiero a la collecion characters del usuario
+
+        charactersRef.onSnapshot((querySnapshot) => { // Muestro los personajes dentro de la collecion del usuario
             let docs = []
             querySnapshot.forEach((doc) => {
                 let data = doc.data()
@@ -32,6 +36,7 @@ export const getCharacters = () => async (dispatch) => {
             })
             dispatch(setCharactersSuccess(docs))
         })
+
     } catch (error) {
         dispatch(setCharactersFailure(error.message))
     }

@@ -21,9 +21,10 @@ export const loginWithGoogle = () => async (dispatch) => {
                 username: userCredential.user.displayName,
                 email: userCredential.user.email,
                 photo: userCredential.user.photoURL,
-                characters: [],
             })
         }
+
+        localStorage.setItem('user', JSON.stringify(userCredential.user))
         dispatch(loginSuccess(userCredential.user))
 
     } catch (error) {
@@ -34,6 +35,7 @@ export const loginWithGoogle = () => async (dispatch) => {
 export const logoutUser = () => async (dispatch) => {
     try {
         await firebase.auth().signOut();
+        localStorage.removeItem('user')
         dispatch(logout());
     } catch (error) {
         console.error('Error during logout:', error);
