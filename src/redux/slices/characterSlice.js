@@ -4,8 +4,8 @@ export const characterSlice = createSlice({
     name: "character",
     initialState: {
         characters: [],
-        // classes: [],
-        // races: [],
+        classes: [],
+        races: [],
         spells: [],
         status: 'idle',
         loading: false,
@@ -14,15 +14,15 @@ export const characterSlice = createSlice({
     reducers: {
 
         /* FETCH */
-        setCharactersStart(state){
+        setUserCharactersStart(state){
             state.loading = true
             state.error = null
         },
-        setCharactersSuccess(state, action){
+        setUserCharactersSuccess(state, action){
             state.characters = action.payload
             state.loading = false
         },
-        setCharactersFailure(state, action){
+        setUserCharactersFailure(state, action){
             state.loading = false
             state.error = action.payload
         },
@@ -67,9 +67,19 @@ export const characterSlice = createSlice({
             state.loading = false
             state.error = action.payload
         },
-        // setClasses(state, action){
-        //     state.classes = action.payload
-        // },
+
+        setClassesStart(state){
+            state.loading = true
+            state.error = null
+        },
+        setClassesSuccess(state, action){
+            state.classes = action.payload
+            state.loading = false
+        },
+        setClassesFailure(state, action){
+            state.loading = false
+            state.error = action.payload
+        },
         // setRaces(state, action){
         //     state.races = action.payload
         // }
@@ -93,9 +103,9 @@ export const characterSlice = createSlice({
 })
 
 export const { 
-    setCharactersStart,
-    setCharactersSuccess,
-    setCharactersFailure,
+    setUserCharactersStart,
+    setUserCharactersSuccess,
+    setUserCharactersFailure,
     updateCharacterStart,
     updateCharacterSuccess,
     updateCharacterFailure,

@@ -1,7 +1,9 @@
 .wrapper{
     display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #7a4f82;
 }
-
 .characterCard{
     height: 100px;
     width: 200px;

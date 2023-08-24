@@ -3,9 +3,9 @@ import axios from "axios";
 import * as types from "../../types/types";
 import { db } from "../../firebase/firebaseConfig";
 import { 
-    setCharactersStart,
-    setCharactersSuccess,
-    setCharactersFailure,
+    setUserCharactersStart,
+    setUserCharactersSuccess,
+    setUserCharactersFailure,
     updateCharacterStart,
     updateCharacterSuccess,
     updateCharacterFailure,
@@ -16,13 +16,14 @@ import {
     setSpellsSuccess,
     setSpellsFailure,
 } from "../slices/characterSlice";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const SPELLS_URL = "https://www.dnd5eapi.co/api/spells"
-// const CLASSES_URL = "https://www.dnd5eapi.co/api/classes"
-// const RACES_URL = "https://www.dnd5eapi.co/api/races"
+const CLASSES_URL = "https://www.dnd5eapi.co/api/classes"
+const RACES_URL = "https://www.dnd5eapi.co/api/races"
 
-export const getCharacters = () => async (dispatch, getState) => {
-    dispatch(setCharactersStart())
+export const getUserCharacters = () => async (dispatch, getState) => {
+    dispatch(setUserCharactersStart())
     try {
 
         const userId = getState().auth.user.uid; // Agarro el ID del usuario autenticado
@@ -33,12 +34,12 @@ export const getCharacters = () => async (dispatch, getState) => {
             querySnapshot.forEach((doc) => {
                 let data = doc.data()
                 docs.push(data)
-            })
-            dispatch(setCharactersSuccess(docs))
+            }) 
+            dispatch(setUserCharactersSuccess(docs))
         })
 
     } catch (error) {
-        dispatch(setCharactersFailure(error.message))
+        dispatch(setUserCharactersFailure(error.message))
     }
 }
 
@@ -75,6 +76,17 @@ export const getSpells = () => async (dispatch) => {
     }
 }
 
+export const getClasses = createAsyncThunk(
+    "character/getClasses",
+    async () => {
+        try {
+            const response = await axios.get(CLASSES_URL)
+
+        } catch (error) {
+            throw new Error(error.message)
+        }
+    }
+)
 // export const getClasses = createAsyncThunk(
 //     "character/getClasses",
 //     async () => {

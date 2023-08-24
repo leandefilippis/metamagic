@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getCharacters, deleteCharacter } from '../../redux/actions/character'
+import { getUserCharacters, deleteCharacter } from '../../redux/actions/character'
 import UpdateModal from '../../components/UpdateModal/UpdateModal'
 import styles from './Characters.module.css'
 
@@ -12,8 +12,7 @@ const Characters = () => {
   const modalRef = useRef()
 
   useEffect(() => {
-    dispatch(getCharacters())
-
+    dispatch(getUserCharacters())
 //////////////////////// MODAL CLOSE ON OUTER CLICK ////////////////////////
     let modalHandler = (e) => {
       if (modalRef.current && !modalRef.current.contains(e.target)) {
@@ -24,8 +23,7 @@ const Characters = () => {
     return () => {
       document.removeEventListener("mousedown", modalHandler);
     }
-    ////////////////////////////////////////////////////////////////////////////
-    
+////////////////////////////////////////////////////////////////////////////
   }, [dispatch])
 
   const deleteOnClick = (name) => {
@@ -52,6 +50,10 @@ const Characters = () => {
           )
         })}
         <UpdateModal modal={modal} current={current} modalRef={modalRef} closeModal={closeModal} />
+
+        <a href="/characters/create">
+        <button>Crear Personaje</button>
+        </a>
     </div>
   )
 }

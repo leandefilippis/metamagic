@@ -4,7 +4,7 @@ import Landing from "../pages/Landing/Landing";
 import Home from '../pages/Home/Home';
 import Create from '../pages/Create/Create';
 import Characters from '../pages/Characters/Characters';
-import Login from "../pages/Login/Login";
+import Profile from "../pages/Profile/Profile";
 import { setUser } from '../redux/slices/authSlice';
 import { useDispatch } from "react-redux";
 
@@ -23,9 +23,9 @@ export const AppRoutes = () => {
             <Routes>
                 <Route exact path='/' element={<Landing/>} />
                 <Route exact path='/home' element={<Home/>} />
-                <Route exact path='/create' element={<Create/>} />
                 <Route exact path='/characters' element={<Characters/>} />
-                <Route exact path='/login' element={<Login/>} />
+                <Route exact path='/characters/create' element={<Create />} />
+                <Route exact path='/profile' element={<Profile/>} />
             </Routes>
         </Router>
     );
