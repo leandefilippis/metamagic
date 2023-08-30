@@ -68,10 +68,10 @@ const Characters = () => {
     <div className={styles.escena}>
           <CharacterScene>
             <color attach="background" args={['#161c24']} />
-            {/* <Sphere color='#fafafa' position={[-3, 0, 0]} />
+            <Sphere color='#fafafa' position={[-3, 0, 0]} />
             <Sphere color='#ff0000' position={[3, 0, 0]}/>
             <Sphere color='#0000ff' position={[0, 0, -3]}/>
-            <Sphere color='#f51f7f' position={[0, 0, 3]}/> */}
+            <Sphere color='#f51f7f' position={[0, 0, 3]}/>
             <ambientLight />
             <OrbitControls />
             <Environment preset='city'/>
