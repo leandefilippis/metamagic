@@ -1,85 +1,102 @@
-// import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { db } from "../../firebase/firebaseConfig";
-import { 
-    setUserCharactersStart,
-    setUserCharactersSuccess,
-    setUserCharactersFailure,
-    deleteCharacterStart,
-    deleteCharacterSuccess,
-    deleteCharacterFailure,
-} from "../slices/characterSlice";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
 
-const SPELLS_URL = "https://www.dnd5eapi.co/api/spells"
-const CLASSES_URL = "https://www.dnd5eapi.co/api/classes"
+const CLASSES_URL = "https://api.open5e.com/v1/classes/"
+const SUBCLASSES_URL = "https://www.dnd5eapi.co/api/subclasses"
 const RACES_URL = "https://www.dnd5eapi.co/api/races"
+const PROFICIENCIES_URL = "https://www.dnd5eapi.co/api/proficiencies"
+const BACKGROUNDS_URL = "https://www.dnd5eapi.co/api/backgrounds"
+const ALIGNMENTS_URL = "https://www.dnd5eapi.co/api/alignments"
+const TRAITS_URL = "https://www.dnd5eapi.co/api/traits"
+const SKILLS_URL = "https://www.dnd5eapi.co/api/skills"
+const SPELLS_URL = "https://www.dnd5eapi.co/api/spells"
 
-export const getUserCharacters = () => async (dispatch, getState) => {
-    dispatch(setUserCharactersStart())
-    try {
 
-        const userId = getState().auth.user.uid; // Agarro el ID del usuario autenticado
-        const charactersRef = db.collection('users').doc(userId).collection('characters'); // Refiero a la collecion characters del usuario
-
-        charactersRef.onSnapshot((querySnapshot) => { // Muestro los personajes dentro de la collecion del usuario
-            let docs = []
-            querySnapshot.forEach((doc) => {
-                let data = doc.data()
-                docs.push(data)
-            }) 
-            dispatch(setUserCharactersSuccess(docs))
-        })
-
-    } catch (error) {
-        dispatch(setUserCharactersFailure(error.message))
-    }
-}
-
-export const deleteCharacter = (character) => async (dispatch, getState) => {
-    dispatch(deleteCharacterStart())
-    try {
-        const user = getState().auth.user
-        db.collection("users").doc(user.uid).collection("characters").doc(character.id).delete()
-        dispatch(deleteCharacterSuccess())
-    } catch (error) {
-        dispatch(deleteCharacterFailure(error.message))
-    }
-}
-
-export const setClasses = createAsyncThunk(
-    "character/setClasses",
-    async () => {
+export const setCharacters = createAsyncThunk(
+    "character/setCharacters",
+    async (_, {getState, rejectWithValue}) => {
         try {
-            const response = await axios.get(CLASSES_URL)
-            return response.data.results
+            const userId = getState().auth.user.uid; // Agarro el ID del usuario autenticado
+            const charactersRef = db.collection('users').doc(userId).collection('characters'); // Refiero a la collecion characters del usuario
+            const querySnapshot = await charactersRef.get() // Obtengo la colección
+            const characters = querySnapshot.docs.map((doc) => doc.data()) // La mapeo
+            return characters
         } catch (error) {
-            throw new Error(error.message)
+            return rejectWithValue(error.message)
         }
     }
 )
 
+export const deleteCharacter = createAsyncThunk(
+    "character/deleteCharacter",
+    async (character, {getState, rejectWithValue}) => {
+        try {
+            const userId = getState().auth.user.uid; // Agarro el ID del usuario autenticado
+            await db.collection("users").doc(userId).collection("characters").doc(character.id).delete() // Borro el personaje
+            return character.id
+        } catch (error) {
+            return rejectWithValue(error.message)
+        }
+    }
+)
+
+export const setClasses = createAsyncThunk(
+    "character/setClasses",
+    async (_, {rejectWithValue}) => {
+        try {
+            const response = await axios.get(CLASSES_URL)
+            return response.data.results
+        } catch (error) {
+            return rejectWithValue(error.message)
+        }
+    }
+    )
+
 export const setRaces = createAsyncThunk(
     "character/setRaces",
-    async () => {
+    async (_, {rejectWithValue}) => {
         try {
             const response = await axios.get(RACES_URL)
             return response.data.results
         } catch (error) {
-            throw new Error(error.message)
+            return rejectWithValue(error.message)
         }
     }
 )
 
 export const setSpells = createAsyncThunk(
     "character/setSpells",
-    async () => {
+    async (_, {rejectWithValue}) => {
         try {
             const response = await axios.get(SPELLS_URL)
             return response.data.results
         } catch (error) {
-            throw new Error(error.message)
+            return rejectWithValue(error.message)
+        }
+    }
+)
+
+export const setBackgrounds = createAsyncThunk(
+    "character/setBackgrounds",
+    async (_, {rejectWithValue}) => {
+        try {
+            const response = await axios.get(BACKGROUNDS_URL)
+            return response.data.results
+        } catch (error) {
+            return rejectWithValue(error.message)
+        }
+    }
+)
+
+export const setAlignments = createAsyncThunk(
+    "character/setAlignments",
+    async (_, {rejectWithValue}) => {
+        try {
+            const response = await axios.get(ALIGNMENTS_URL)
+            return response.data.results
+        } catch (error) {
+            return rejectWithValue(error.message)
         }
     }
 )

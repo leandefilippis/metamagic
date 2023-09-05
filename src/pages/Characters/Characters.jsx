@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserCharacters, deleteCharacter } from '../../redux/actions/character'
+import { setCharacters, deleteCharacter } from '../../redux/actions/character'
 import UpdateModal from '../../components/UpdateModal/UpdateModal'
 import styles from './Characters.module.css'
 //////////////////////////////////////////////// 3D ////////////////////////////////////////////////
@@ -21,7 +21,7 @@ const Characters = () => {
   const modalRef = useRef()
 
   useEffect(() => {
-    dispatch(getUserCharacters())
+    dispatch(setCharacters())
 //////////////////////// MODAL CLOSE ON OUTER CLICK ////////////////////////
     let modalHandler = (e) => {
       if (modalRef.current && !modalRef.current.contains(e.target)) {
@@ -49,21 +49,18 @@ const Characters = () => {
       {characters?.map((character) => {
         return (
           <div className={styles.characterCard} key={character.name}>
-            {character.name}, {character.spells}
+            <p>{character.name}</p>
+            <p>{character.class}</p>
+            <p>{character.race}</p>
             <div>
               <button onClick={() => {setModal(!modal)
                 setCurrent(character)}}> Edit </button>
-
               <button onClick={() => deleteOnClick(character)}>Delete</button>
             </div>
           </div>
         )
       })}
       <UpdateModal modal={modal} current={current} modalRef={modalRef} closeModal={closeModal} />
-
-      <a href="/characters/create">
-      <button>Crear Personaje</button>
-      </a>
 
 
 

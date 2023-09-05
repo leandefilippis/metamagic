@@ -1,5 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { setClasses, setRaces, setSpells } from '../actions/character'
+import {
+    setCharacters,
+    deleteCharacter,
+    setClasses,
+    setRaces,
+    setSpells,
+    setBackgrounds,
+    setAlignments,
+} from '../actions/character'
 
 export const characterSlice = createSlice({
     name: "character",
@@ -8,67 +16,55 @@ export const characterSlice = createSlice({
         classes: [],
         races: [],
         spells: [],
+        backgrounds: [],
+        alignments: [],
         status: 'idle',
-        loading: false,
         error: null,
     },
     reducers: {
-
-        /* FETCH */
-        setUserCharactersStart(state){
-            state.loading = true
-            state.error = null
-        },
-        setUserCharactersSuccess(state, action){
-            state.characters = action.payload
-            state.loading = false
-        },
-        setUserCharactersFailure(state, action){
-            state.loading = false
-            state.error = action.payload
-        },
-
-        /* UPDATE */
-        updateCharacterStart(state){
-            state.loading = true
-            state.error = null
-        },
-        updateCharacterSuccess(state, action){
-            state.loading = false
-            state.characters = action.payload
-        },
-        updateCharacterFailure(state, action){
-            state.loading = false
-            state.error = action.payload
-        },
-
-        /* DELETE */
-        deleteCharacterStart(state){
-            state.loading = true
-            state.error = null
-        },
-        deleteCharacterSuccess(state){
-            state.loading = false
-        },
-        deleteCharacterFailure(state, action){
-            state.loading = false
-            state.error = action.payload
-        },
     },
     extraReducers: (builder) => {
         builder
 
+        /////////////////////// CHARACTERS ///////////////////////
+        .addCase(setCharacters.pending, (state) => {
+            state.status = 'pending'
+            state.error = null
+        })
+        .addCase(setCharacters.fulfilled, (state, action) => {
+            state.characters = action.payload
+            state.status = 'fulfilled'
+        })
+        .addCase(setCharacters.rejected, (state, action) => {
+            state.status = 'rejected'
+            state.error = action.payload
+        })
+        //////////////////////////////////////////////////////////
+        .addCase(deleteCharacter.pending, (state) => {
+            state.status = 'pending'
+            state.error = null
+        })
+        .addCase(deleteCharacter.fulfilled, (state, action) => {
+            state.characters = state.characters.filter(character => character.id !== action.payload)
+            state.status = 'fulfilled'
+        })
+        .addCase(deleteCharacter.rejected, (state, action) => {
+            state.status = 'rejected'
+            state.error = action.payload
+        })
+        /////////////////////// CHARACTERS ///////////////////////
+
         /////////////////////// CLASSES ///////////////////////
         .addCase(setClasses.pending, (state) => {
-            state.loading = true
+            state.status = 'pending'
             state.error = null
         })
         .addCase(setClasses.fulfilled, (state, action) => {
             state.classes = action.payload
-            state.loading = false
+            state.status = 'fulfilled'
         })
         .addCase(setClasses.rejected, (state, action) => {
-            state.loading = false
+            state.status = 'rejected'
             state.error = action.payload
         })
         /////////////////////// CLASSES ///////////////////////
@@ -76,46 +72,67 @@ export const characterSlice = createSlice({
 
         /////////////////////// RACES ///////////////////////
         .addCase(setRaces.pending, (state) => {
-            state.loading = true
+            state.status = 'pending'
             state.error = null
         })
         .addCase(setRaces.fulfilled, (state, action) => {
             state.races = action.payload
-            state.loading = false
+            state.status = 'fulfilled'
         })
         .addCase(setRaces.rejected, (state, action) => {
-            state.loading = false
+            state.status = 'rejected'
             state.error = action.payload
         })
         /////////////////////// RACES ///////////////////////
 
         /////////////////////// SPELLS ///////////////////////
         .addCase(setSpells.pending, (state) => {
-            state.loading = true
+            state.status = 'pending'
             state.error = null
         })
         .addCase(setSpells.fulfilled, (state, action) => {
             state.spells = action.payload
-            state.loading = false
+            state.status = 'fulfilled'
         })
         .addCase(setSpells.rejected, (state, action) => {
-            state.loading = false
+            state.status = 'rejected'
             state.error = action.payload
         })
         /////////////////////// SPELLS ///////////////////////
+
+        /////////////////////// BACKGROUNDS ///////////////////////
+        .addCase(setBackgrounds.pending, (state) => {
+            state.status = 'pending'
+            state.error = null
+        })
+        .addCase(setBackgrounds.fulfilled, (state, action) => {
+            state.backgrounds = action.payload
+            state.status = 'fulfilled'
+        })
+        .addCase(setBackgrounds.rejected, (state, action) => {
+            state.status = 'rejected'
+            state.error = action.payload
+        })
+        /////////////////////// BACKGROUNDS ///////////////////////
+
+        /////////////////////// ALIGNMENT ///////////////////////
+        .addCase(setAlignments.pending, (state) => {
+            state.status = 'pending'
+            state.error = null
+        })
+        .addCase(setAlignments.fulfilled, (state, action) => {
+            state.alignments = action.payload
+            state.status = 'fulfilled'
+        })
+        .addCase(setAlignments.rejected, (state, action) => {
+            state.status = 'rejected'
+            state.error = action.payload
+        })
+        /////////////////////// ALIGNMENT ///////////////////////
     },
 })
 
-export const { 
-    setUserCharactersStart,
-    setUserCharactersSuccess,
-    setUserCharactersFailure,
-    updateCharacterStart,
-    updateCharacterSuccess,
-    updateCharacterFailure,
-    deleteCharacterStart,
-    deleteCharacterSuccess,
-    deleteCharacterFailure,
+export const {
 } = characterSlice.actions
 
 export default characterSlice.reducer

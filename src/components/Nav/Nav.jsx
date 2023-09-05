@@ -39,6 +39,10 @@ const Nav = () => {
   return (
     <div id={styles.Nav}>
       <a href="/home"><img src={Metabook} alt="Metabook" className={styles.Logo}/></a>
+      
+      <a href="/characters/create">
+      <button className={styles.createButton}>Crear Personaje</button>
+      </a>
 
       { user
         ? <div className={styles.menuContainer} ref={menuRef}>

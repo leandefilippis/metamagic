@@ -57,13 +57,13 @@ const UpdateModal = ({modal, current, modalRef, closeModal}) => {
                 </select>
                 <select name="classes" onChange={(e) => {handleOnChange(e)}} placeholder='Classes'>
                     <option value="Not selected" hidden>Select a class</option>
-                    {spells?.map((opt) => (
+                    {classes?.map((opt) => (
                         <option key={opt.index} value={opt.name}>{opt.name}</option>
                     ))}
                 </select>
                 <select name="races" onChange={(e) => {handleOnChange(e)}} placeholder='Races'>
                     <option value="Not selected" hidden>Select a race</option>
-                    {spells?.map((opt) => (
+                    {races?.map((opt) => (
                         <option key={opt.index} value={opt.name}>{opt.name}</option>
                     ))}
                 </select>

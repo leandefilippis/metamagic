@@ -96,3 +96,18 @@
     opacity: 1;
     cursor: pointer;
 }
+
+
+.createButton{
+    margin-left: 50px;
+    background: none;
+    color: #ffeded;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.createButton:hover{
+    color:#f0fe57;
+    transition: 0.2s;
+}
