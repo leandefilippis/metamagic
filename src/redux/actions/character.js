@@ -1,22 +1,16 @@
 // import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import * as types from "../../types/types";
 import { db } from "../../firebase/firebaseConfig";
 import { 
     setUserCharactersStart,
     setUserCharactersSuccess,
     setUserCharactersFailure,
-    updateCharacterStart,
-    updateCharacterSuccess,
-    updateCharacterFailure,
     deleteCharacterStart,
     deleteCharacterSuccess,
     deleteCharacterFailure,
-    setSpellsStart,
-    setSpellsSuccess,
-    setSpellsFailure,
 } from "../slices/characterSlice";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
 
 const SPELLS_URL = "https://www.dnd5eapi.co/api/spells"
 const CLASSES_URL = "https://www.dnd5eapi.co/api/classes"
@@ -43,86 +37,49 @@ export const getUserCharacters = () => async (dispatch, getState) => {
     }
 }
 
-export const updateCharacter = (data) => async (dispatch) => {
-    dispatch(updateCharacterStart())
-    try {
-        db.collection("characters").doc(data.id).update({
-            name: data.name,
-            spells: data.spells
-        })
-        dispatch(updateCharacterSuccess())
-    } catch (error) {
-        dispatch(updateCharacterFailure(error.message))
-    }
-}
-
-export const deleteCharacter = (character) => async (dispatch) => {
+export const deleteCharacter = (character) => async (dispatch, getState) => {
     dispatch(deleteCharacterStart())
     try {
-        db.collection(types.CHARACTERS).doc(character).delete()
+        const user = getState().auth.user
+        db.collection("users").doc(user.uid).collection("characters").doc(character.id).delete()
         dispatch(deleteCharacterSuccess())
     } catch (error) {
         dispatch(deleteCharacterFailure(error.message))
     }
 }
 
-export const getSpells = () => async (dispatch) => {
-    dispatch(setSpellsStart())
-    try {
-        const {data} = await axios.get(SPELLS_URL)
-        dispatch(setSpellsSuccess(data.results))
-    } catch (error) {
-        dispatch(setSpellsFailure(error.message))
-    }
-}
-
-export const getClasses = createAsyncThunk(
-    "character/getClasses",
+export const setClasses = createAsyncThunk(
+    "character/setClasses",
     async () => {
         try {
             const response = await axios.get(CLASSES_URL)
-
+            return response.data.results
         } catch (error) {
             throw new Error(error.message)
         }
     }
 )
-// export const getClasses = createAsyncThunk(
-//     "character/getClasses",
-//     async () => {
-//         try {
-//             const {data} = await axios.get(CLASSES_URL)
-//             console.log(data.results)
-//             return data
-//         } catch (error) {
-//             throw new Error(error)
-//         }
-//     }
-// )
 
-// export const getRaces = createAsyncThunk(
-//     "character/getRaces",
-//     async () => {
-//         try {
-//             const {data} = await axios.get(RACES_URL)
-//             console.log(data)
-//             return data
-//         } catch (error) {
-//             throw new Error(error)
-//         }
-//     }
-// )
+export const setRaces = createAsyncThunk(
+    "character/setRaces",
+    async () => {
+        try {
+            const response = await axios.get(RACES_URL)
+            return response.data.results
+        } catch (error) {
+            throw new Error(error.message)
+        }
+    }
+)
 
-// export const getSpells = createAsyncThunk(
-//     "character/getSpells",
-//         async () => {
-//             try {
-//                 const {data} = await axios.get(SPELLS_URL)
-//                 return data
-//             } catch (error) {
-//                 throw new Error(error)
-//             }
-//         }
-// )
-
-/* PASAR A ASYNC THUNK ESTAS FUNCIONES UNA VEZ ARREGLE EL ERROR DE "TYPE" EN .ADDCASE */
+export const setSpells = createAsyncThunk(
+    "character/setSpells",
+    async () => {
+        try {
+            const response = await axios.get(SPELLS_URL)
+            return response.data.results
+        } catch (error) {
+            throw new Error(error.message)
+        }
+    }
+)

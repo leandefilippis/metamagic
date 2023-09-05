@@ -35,8 +35,8 @@ const Characters = () => {
 ////////////////////////////////////////////////////////////////////////////
   }, [dispatch])
 
-  const deleteOnClick = (name) => {
-    dispatch(deleteCharacter(name))
+  const deleteOnClick = (character) => {
+    dispatch(deleteCharacter(character))
   }
 
   const closeModal = () => {
@@ -46,15 +46,15 @@ const Characters = () => {
   return (
     <>
     <div className={styles.wrapper}>
-      {characters?.map((el) => {
+      {characters?.map((character) => {
         return (
-          <div className={styles.characterCard} key={el.name}>
-            {el.name}, {el.spells}
+          <div className={styles.characterCard} key={character.name}>
+            {character.name}, {character.spells}
             <div>
               <button onClick={() => {setModal(!modal)
-                setCurrent(el)}}> Edit </button>
+                setCurrent(character)}}> Edit </button>
 
-              <button onClick={() => deleteOnClick(el.name)}>Delete</button>
+              <button onClick={() => deleteOnClick(character)}>Delete</button>
             </div>
           </div>
         )
@@ -64,6 +64,23 @@ const Characters = () => {
       <a href="/characters/create">
       <button>Crear Personaje</button>
       </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
     <div className={styles.escena}>
           <CharacterScene>
@@ -84,7 +101,7 @@ const Characters = () => {
             <Stars factor={3} fade speed={1} radius={50}/>
             {/* <Model /> */}
           </CharacterScene>
-    </div>
+    </div> 
     </>
   )
 }

@@ -1,26 +1,29 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getSpells } from '../../redux/actions/character'
-import { db } from '../../firebase/firebaseConfig'
+import { setClasses, setRaces, setSpells } from '../../redux/actions/character'
+import { db, auth } from '../../firebase/firebaseConfig'
 import styles from './UpdateModal.module.css'
 
 const initialState = {
     name: "",
-    spells: [],
-    // race: ""
+    classes: [],
+    races: [],
+    spells: []
 }
 
 const UpdateModal = ({modal, current, modalRef, closeModal}) => {
     const dispatch = (useDispatch())
     const character = useSelector(state => state.character)
+    const classes = useSelector(state => state.character.classes)
+    const races = useSelector(state => state.character.races)
     const spells = useSelector(state => state.character.spells)
     const [input, setInput] = useState(initialState)
-    
+    const user = useSelector(state => state.auth.user)
 
     useEffect(() => {
-        dispatch(getSpells())
-        // dispatch(getClasses())
-        // dispatch(getRaces())
+        dispatch(setSpells())
+        dispatch(setClasses())
+        dispatch(setRaces())
     }, [dispatch])
 
     const handleOnChange = (e) => {
@@ -28,13 +31,11 @@ const UpdateModal = ({modal, current, modalRef, closeModal}) => {
             ...input,
             [e.target.name]: e.target.value
         })
-        console.log(input)
     }
     
     const handleUpdate = (e) => {
-        console.log(character)
         e.preventDefault()
-        db.collection("characters").doc(current.id).update({
+        db.collection("users").doc(user.uid).collection("characters").doc(current.id).update({
             name: input.name,
             spells: input.spells
         })
@@ -49,7 +50,19 @@ const UpdateModal = ({modal, current, modalRef, closeModal}) => {
                 <h2>Editando a: {current.name}</h2>
                 <input className={styles.editInput} name="name" type="text" onChange={(e) => {handleOnChange(e)}} />
                 <select name="spells" onChange={(e) => {handleOnChange(e)}} placeholder='Spells'>
-                    <option value="Not selected" hidden>Select spell</option>
+                    <option value="Not selected" hidden>Select spells</option>
+                    {spells?.map((opt) => (
+                        <option key={opt.index} value={opt.name}>{opt.name}</option>
+                    ))}
+                </select>
+                <select name="classes" onChange={(e) => {handleOnChange(e)}} placeholder='Classes'>
+                    <option value="Not selected" hidden>Select a class</option>
+                    {spells?.map((opt) => (
+                        <option key={opt.index} value={opt.name}>{opt.name}</option>
+                    ))}
+                </select>
+                <select name="races" onChange={(e) => {handleOnChange(e)}} placeholder='Races'>
+                    <option value="Not selected" hidden>Select a race</option>
                     {spells?.map((opt) => (
                         <option key={opt.index} value={opt.name}>{opt.name}</option>
                     ))}

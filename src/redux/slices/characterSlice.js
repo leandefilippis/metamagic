@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { setClasses, setRaces, setSpells } from '../actions/character'
 
 export const characterSlice = createSlice({
     name: "character",
@@ -53,53 +54,56 @@ export const characterSlice = createSlice({
             state.loading = false
             state.error = action.payload
         },
+    },
+    extraReducers: (builder) => {
+        builder
 
-        /* FETCH */
-        setSpellsStart(state){
+        /////////////////////// CLASSES ///////////////////////
+        .addCase(setClasses.pending, (state) => {
             state.loading = true
             state.error = null
-        },
-        setSpellsSuccess(state, action){
-            state.spells = action.payload
-            state.loading = false
-        },
-        setSpellsFailure(state, action){
-            state.loading = false
-            state.error = action.payload
-        },
-
-        setClassesStart(state){
-            state.loading = true
-            state.error = null
-        },
-        setClassesSuccess(state, action){
+        })
+        .addCase(setClasses.fulfilled, (state, action) => {
             state.classes = action.payload
             state.loading = false
-        },
-        setClassesFailure(state, action){
+        })
+        .addCase(setClasses.rejected, (state, action) => {
             state.loading = false
             state.error = action.payload
-        },
-        // setRaces(state, action){
-        //     state.races = action.payload
-        // }
+        })
+        /////////////////////// CLASSES ///////////////////////
+
+
+        /////////////////////// RACES ///////////////////////
+        .addCase(setRaces.pending, (state) => {
+            state.loading = true
+            state.error = null
+        })
+        .addCase(setRaces.fulfilled, (state, action) => {
+            state.races = action.payload
+            state.loading = false
+        })
+        .addCase(setRaces.rejected, (state, action) => {
+            state.loading = false
+            state.error = action.payload
+        })
+        /////////////////////// RACES ///////////////////////
+
+        /////////////////////// SPELLS ///////////////////////
+        .addCase(setSpells.pending, (state) => {
+            state.loading = true
+            state.error = null
+        })
+        .addCase(setSpells.fulfilled, (state, action) => {
+            state.spells = action.payload
+            state.loading = false
+        })
+        .addCase(setSpells.rejected, (state, action) => {
+            state.loading = false
+            state.error = action.payload
+        })
+        /////////////////////// SPELLS ///////////////////////
     },
-    // extraReducers: (builder) => {
-    //     builder
-    //     .addCase(getSpells.pending, (state) => {
-    //         state.loading = true
-    //         state.error = null
-    //     })
-    //     .addCase(getSpells.fullfilled, (state, action) => {
-    //         state.loading = false
-    //         state.spells = action.payload
-    //         state.error = ""
-    //     })
-    //     .addCase(getSpells.rejected, (state, action) => {
-    //         state.loading = false
-    //         state.error = action.payload
-    //     })
-    // },
 })
 
 export const { 
@@ -112,11 +116,6 @@ export const {
     deleteCharacterStart,
     deleteCharacterSuccess,
     deleteCharacterFailure,
-    setSpellsStart,
-    setSpellsSuccess,
-    setSpellsFailure,
-    getClasses,
-    getRaces,
 } = characterSlice.actions
 
 export default characterSlice.reducer
