@@ -1,0 +1,70 @@
+{
+    "results": [
+        {
+            "name": "",
+            "index": "",
+            "desc": "",
+            "hit_dice": "dice",
+            "hit_modifier": "stat",
+            "hit_points": {
+                "1st_level": {
+                    "value": 8,
+                    "modifier": "stat"
+                },
+                "higher_levels": {
+                    "value": 5,
+                    "dice": ""
+                }
+            },
+            "proficiencies": [
+                {
+                    "armors": ["", ""],
+                    "weapons": ["", ""],
+                    "tools": ["", ""],
+                    "saving_throws": ["", ""],
+                    "skills": {
+                        "choose": 2,
+                        "from": ["skill", "skill", "skill"]
+                    }
+                }
+            ],
+            "start_equipment": [
+                {
+                    "armors": ["", ""],
+                    "weapons": ["", ""],
+                    "tools": ["", ""]
+                }
+            ],
+            "lvl_features": [
+                {
+                    "level": 1,
+                    "traits": ["", ""],
+                    "proficiency_bonus": "+1",
+                    "mechanic": [
+                        {
+                        "name": "",
+                        "value": 1
+                        },
+                        {
+                        "name": "",
+                        "value": 1
+                        }
+                    ]
+                }
+            ],
+            "archetypes": [
+                {
+                    "name": "",
+                    "description": "",
+                    "traits": ["", ""]
+                }
+            ],
+            "spellcasting": [{
+                "able": true,
+                "modifier": "stat",
+                "cantrips": ["", ""],
+                "spells": ["", ""]
+            }]
+        }
+    ]
+}

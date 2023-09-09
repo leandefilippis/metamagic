@@ -1,0 +1,24 @@
+[
+    {
+        "name": "description",
+        "desc": "Spell components are the physical requirements that your character has to check with the purpose of casting the spell, these can be Verbal components, Somatic components or Materials depending on the spell. If your character is out of any of the components, you won't be able to cast it."
+    },
+    {
+        "name": "Verbal",
+        "index": "verbal",
+        "desc": "Most of the spells require to say mystical words. Although those aren't the source of power, the particular combination of sounds, tone and resonance in specific gets the magic flowing. If a spell requires a verbal component, the caster has to have the ability to speak in any way.",
+        "requirement": "speak"
+    },
+    {
+        "name": "Somatic",
+        "index": "somatic",
+        "desc": "The gestures to cast spells could include mandatory hand movements or a complicated sleight of hands. If a spell requires a somatic component, the caster has to have at least one free hand.",
+        "requirement": "hand"
+    },
+    {
+        "name": "Material",
+        "index": "material",
+        "desc": "Some spells could require particular objects. Some are free to get, but you may have to buy some of them.",
+        "requirement": "hand"
+    }
+]

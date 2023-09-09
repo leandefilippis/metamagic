@@ -5,6 +5,7 @@ import {
     setClasses,
     setRaces,
     setSpells,
+    setClassSpells,
     setBackgrounds,
     setAlignments,
 } from '../actions/character'
@@ -16,6 +17,7 @@ export const characterSlice = createSlice({
         classes: [],
         races: [],
         spells: [],
+        classSpells: [],
         backgrounds: [],
         alignments: [],
         status: 'idle',
@@ -95,6 +97,19 @@ export const characterSlice = createSlice({
             state.status = 'fulfilled'
         })
         .addCase(setSpells.rejected, (state, action) => {
+            state.status = 'rejected'
+            state.error = action.payload
+        })
+        //////////////////////////////////////////////////////
+        .addCase(setClassSpells.pending, (state) => {
+            state.status = 'pending'
+            state.error = null
+        })
+        .addCase(setClassSpells.fulfilled, (state, action) => {
+            state.classSpells = action.payload
+            state.status = 'fulfilled'
+        })
+        .addCase(setClassSpells.rejected, (state, action) => {
             state.status = 'rejected'
             state.error = action.payload
         })

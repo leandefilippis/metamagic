@@ -1,15 +1,6 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setAlignments } from "../../../redux/actions/character";
 import styles from "./PersonalitySelect.module.css";
 
-const PersonalitySelect = ({ characterData, setCharacterData }) => {
-  const dispatch = useDispatch()
-  const alignments = useSelector((state) => state.character.alignments)
-
-  useEffect(() => {
-    dispatch(setAlignments())
-  }, [dispatch])
+const PersonalitySelect = ({ alignments, characterData, setCharacterData }) => {
 
   const handleAlignmentSelect = (selected) => {
     setCharacterData({...characterData, alignment: selected})

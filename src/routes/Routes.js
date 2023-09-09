@@ -19,6 +19,7 @@ export const AppRoutes = () => {
 
     return (
         <Router>
+            <div>
             <Nav />
             <Routes>
                 <Route exact path='/' element={<Landing/>} />
@@ -27,6 +28,7 @@ export const AppRoutes = () => {
                 <Route exact path='/characters/create' element={<CharacterCreation />} />
                 <Route exact path='/profile' element={<Profile/>} />
             </Routes>
+            </div>
         </Router>
     );
 }

@@ -1,15 +1,6 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setRaces } from "../../../redux/actions/character";
 import styles from "./RaceSelection.module.css";
 
-const RaceSelection = ({ characterData, setCharacterData }) => {
-  const dispatch = useDispatch()
-  const races = useSelector((state) => state.character.races)
-
-  useEffect(() => {
-    dispatch(setRaces())
-  }, [dispatch])
+const RaceSelection = ({ races, characterData, setCharacterData }) => {
 
   const handleRaceSelect = (selected) => {
     setCharacterData({...characterData, race: selected})

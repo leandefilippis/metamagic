@@ -6,7 +6,7 @@ const CLASSES_URL = "https://api.open5e.com/v1/classes/"
 const SUBCLASSES_URL = "https://www.dnd5eapi.co/api/subclasses"
 const RACES_URL = "https://www.dnd5eapi.co/api/races"
 const PROFICIENCIES_URL = "https://www.dnd5eapi.co/api/proficiencies"
-const BACKGROUNDS_URL = "https://www.dnd5eapi.co/api/backgrounds"
+const BACKGROUNDS_URL = "https://api.open5e.com/v1/backgrounds/"
 const ALIGNMENTS_URL = "https://www.dnd5eapi.co/api/alignments"
 const TRAITS_URL = "https://www.dnd5eapi.co/api/traits"
 const SKILLS_URL = "https://www.dnd5eapi.co/api/skills"
@@ -94,6 +94,18 @@ export const setAlignments = createAsyncThunk(
     async (_, {rejectWithValue}) => {
         try {
             const response = await axios.get(ALIGNMENTS_URL)
+            return response.data.results
+        } catch (error) {
+            return rejectWithValue(error.message)
+        }
+    }
+)
+
+export const setClassSpells = createAsyncThunk(
+    "character/setClassSpells",
+    async (current, {rejectWithValue}) => {
+        try {
+            const response = await axios.get(`https://www.dnd5eapi.co/api/classes/${current}/spells`)
             return response.data.results
         } catch (error) {
             return rejectWithValue(error.message)

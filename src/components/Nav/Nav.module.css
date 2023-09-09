@@ -1,27 +1,39 @@
-#Nav{
+#nav{
     display: flex;
-    position: sticky;
-    top: 0px;
     align-items: center;
-    height: 70px;
-    width: 100vw;
-    /* background-color: #3d3c38; */
-    background: linear-gradient(10deg, #3e1346, #77294f)
+    height: 100px;
+    width: (100% - margin);
+    margin: 25px 25px 0px 25px;
+
+    /* background: linear-gradient(10deg, #3e1346, #77294f) */
 }
 
-.Logo{
+#left{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 50%;
+}
+
+#right{
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    width: 50%;
+}
+#logo{
     height: 40px;
     width: 50px;
-    margin-left: 20px;
 }
 
 .menuTrigger img{
-    position:absolute;
-    top: 9px;
-    right: 30px;
+    display: flex;
+    justify-self: flex-end;
+    top: 15px;
+    right: 45px;
     height: 50px;
     width: 50px;
-    border: 1px solid #77294f;
+    border: 1px solid #1F191B;
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
@@ -34,7 +46,6 @@
     right: 30px;
     height: 40px;
     width: 160px;
-    border: 1px solid #77294f;
     border-radius: 20px;
     font-size: 15px;
     overflow: hidden;
@@ -56,9 +67,9 @@
 
 #dropdownMenu{
     position: absolute;
-    top: 70px;
+    top: 100px;
     right: 25px;
-    background-color: rgb(255, 255, 255);
+    background-color: #1F191B;
     border-radius: 4px;
     height: 175px;
     width: 140px;
@@ -71,7 +82,7 @@
     right: 21px;
     height: 20px;
     width: 20px;
-    background-color: #fff;
+    background-color: #1F191B;
     transform: rotate(45deg);
 }
 
@@ -87,7 +98,7 @@
 
 #dropdownMenu ul li:hover a{
     transition: 0.5s;
-    color: #3e1346;
+    color: #ffffff;
     opacity: 1;
     cursor: pointer;
 }
@@ -111,3 +122,28 @@
     color:#f0fe57;
     transition: 0.2s;
 }
+
+
+.icosaedro {
+    width: 100px;
+    height: 100px;
+    position: relative;
+  }
+  
+  .triangulo {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    background-color: white;
+    position: absolute;
+  }
+  
+  .triangulo:nth-child(odd) {
+    border-bottom: 87px solid #3498db; /* Triángulo equilátero */
+  }
+  
+  .triangulo:nth-child(even) {
+    border-bottom: 87px solid #e74c3c; /* Triángulo equilátero */
+  }
+  

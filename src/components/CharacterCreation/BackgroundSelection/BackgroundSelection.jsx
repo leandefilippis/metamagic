@@ -1,15 +1,6 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setBackgrounds } from "../../../redux/actions/character";
 import styles from "./BackgroundSelection.module.css";
 
-const BackgroundSelection = ({ characterData, setCharacterData }) => {
-  const dispatch = useDispatch()
-  const backgrounds = useSelector((state) => state.character.backgrounds)
-
-  useEffect(() => {
-    dispatch(setBackgrounds())
-  }, [dispatch])
+const BackgroundSelection = ({ backgrounds, characterData, setCharacterData }) => {
 
   const handleBackgroundSelect = (selected) => {
     setCharacterData({...characterData, background: selected})

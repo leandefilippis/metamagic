@@ -37,13 +37,15 @@ const Nav = () => {
   }
 
   return (
-    <div id={styles.Nav}>
-      <a href="/home"><img src={Metabook} alt="Metabook" className={styles.Logo}/></a>
-      
-      <a href="/characters/create">
-      <button className={styles.createButton}>Crear Personaje</button>
-      </a>
-
+    <div id={styles.nav}>
+      <div id={styles.left}>
+      <a href="/home"><img src={Metabook} alt="Metabook" id={styles.logo}/></a>
+      </div>      
+      <div class="icosaedro">
+  <div class="triangulo"></div>
+  <div class="triangulo"></div>
+</div>
+      <div id={styles.right}>
       { user
         ? <div className={styles.menuContainer} ref={menuRef}>
           <div className={styles.menuTrigger} onClick={() => {setMenu(!menu)}}>
@@ -60,10 +62,7 @@ const Nav = () => {
         </div>
         : <div className={styles.menuTrigger}><button onClick={handleGoogleLogin}>Login with Google</button></div>
       }
-      {/* <div id={styles.End}>
-
-        <button onClick={handleLogout}>Out</button>
-      </div>   */}
+      </div>
     </div>
   )
 }
