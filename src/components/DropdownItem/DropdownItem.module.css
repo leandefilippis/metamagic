@@ -48,3 +48,10 @@ div a:visited{
     text-decoration: none; 
     color: rgb(0, 0, 0); 
 }
+
+
+#logout{
+    color: #ffffff;
+    margin-left: 2px;
+    font-weight: 600;
+}

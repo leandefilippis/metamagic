@@ -18,7 +18,7 @@ const DropdownItem = (props) => {
                 <li className={styles.dropdownItem}>
                     <img src={props.img} />
                     {
-                        props.text == 'Logout'? <button onClick={handleLogout}>{props.text}</button> : <div className={styles.itemName}>{props.text}</div>
+                        props.text == 'Logout'? <button onClick={handleLogout} id={styles.logout}>{props.text}</button> : <div className={styles.itemName}>{props.text}</div>
                     }
                 </li>
             </a>

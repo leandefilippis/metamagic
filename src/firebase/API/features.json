@@ -1,18 +1,264 @@
-
-{
-    "name": "",
-    "index": "",
-    "level": 2,
-    "classes": ["", ""],
-    "desc": [""],
-    "effect": {
-        "type": "damage",
-        "dice": "1d6",
-        "duration": "1_turn"
+[
+    {
+        "name": "",
+        "index": "",
+        "desc": "",
+        "effect": {
+            "type": "damage",
+            "dice": "1d6",
+            "duration": "1_turn"
+        },
+        "higher_level": {
+            "dice": "dice",
+            "improvement": "",
+            "hit_modifier": "stat"
+        }
     },
-    "higher_level": {
-        "dice": "dice",
-        "improvement": "",
-        "hit_modifier": "stat"
+
+    {
+        "name": "Rage",
+        "index": "rage",
+        "desc": "In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action lasting for 2 turns, can be stopped early. While raging, you gain the following benefits if you aren’t wearing heavy armor:",
+        "requirements": { "action": "bonus_action" },
+        "duration": {
+            "turns": 2,
+            "interruptible": ["recast", "knocked_out", "peaceful_turn_end"]
+        },
+        "effect": [
+            {
+                "desc": "You have advantage on Strength checks and Strength saving throws.",
+                "type": "advantage",
+                "over": ["ability_check", "saving_throws"],
+                "stat": "strength"
+            },
+            {
+                "desc": "When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian.",
+                "type": "improvement",
+                "on": ["attack_action", "melee"],
+                "over": "damage_roll",
+                "stat": "strength"
+            },
+            {
+                "desc": "You have resistance to bludgeoning, piercing, and slashing damage.",
+                "type": "resistance",
+                "over": ["bludgeoning", "piercing", "slashing"]
+            },
+            {
+                "desc": "Unable to cast spells or concentrate while raging.",
+                "type": "debuff",
+                "over": ["spellcasting", "concentration"]
+            }
+        ],
+        "level_improvements": [
+            {
+                "character_level": { "from": 1, "to": 2 },
+                "quantity": 2,
+                "hit_modifier": "+2"
+            },
+            {
+                "character_level": { "from": 3, "to": 5 },
+                "quantity": 3,
+                "hit_modifier": "+2"
+            },
+            {
+                "character_level": { "from": 6, "to": 8 },
+                "quantity": 4,
+                "hit_modifier": "+2"
+            },
+            {
+                "character_level": { "from": 9, "to": 11 },
+                "quantity": 4,
+                "hit_modifier": "+3"
+            },
+            {
+                "character_level": { "from": 12, "to": 15 },
+                "quantity": 5,
+                "hit_modifier": "+3"
+            },
+            {
+                "character_level": 16,
+                "quantity": 5,
+                "hit_modifier": "+4"
+            },
+            {
+                "character_level": { "from": 17, "to": 19 },
+                "quantity": 6,
+                "hit_modifier": "+4"
+            },
+            {
+                "character_level": 20,
+                "quantity": "unlimited",
+                "hit_modifier": "+4"
+            }
+        ]
+    },
+    {
+        "name": "Unarmored Defense",
+        "index": "unarmored_defense",
+        "desc": "While you are not wearing any armor, your Armor Class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.",
+        "requirements": { "armor": "unarmored" },
+        "duration": "requirements",
+        "effect": {
+            "type": "improvement",
+            "on": "armor_class",
+            "value": 10,
+            "modifier": ["dexterity", "constitution"]
+        }
+    },
+    {
+        "name": "Reckless Attack",
+        "index": "reckless_attack",
+        "desc": "You can throw aside all concern for defense to attack with fierce desperation. When you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.",
+        "requirements": { "take_action": "first_attack" },
+        "duration": "until_next_turn",
+        "effect": [
+            {
+            "type": "advantage",
+            "on": "melee_weapons",
+            "modifier": "strength"
+            },
+            {
+            "type": "advantaged",
+            "on": "attack_rolls"
+            }
+        ]
+    },
+    {
+        "name": "Danger Sense",
+        "index": "danger_sense",
+        "desc": "You gain an uncanny sense of when things nearby aren’t as they should be, giving you an edge when you dodge away from danger. You have advantage on Dexterity saving throws against effects that you can see, such as traps and spells. To gain this benefit, you can’t be blinded, deafened, or incapacitated.",
+        "unable": { "conditions": ["blinded", "deafened", "incapacitated"] },
+        "effect": {
+            "type": "advantage",
+            "on": "saving_throws",
+            "stat": "dexterity",
+            "while": "visible_damage_source"
+        }
+    },
+    {
+        "name": "Primal Path",
+        "index": "primal_path",
+        "desc": "Rage burns in every barbarian’s heart, a furnace that drives him or her toward greatness. Different barbarians attribute their rage to different sources, however. For some, it is an internal reservoir where pain, grief, and anger are forged into a fury hard as steel. Others see it as a spiritual blessing, a gift of a totem animal."
+    },
+    {
+        "name": "Ability Score Improvement",
+        "index": "ability_score_improvement",
+        "desc": "You can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.",
+        "effect": {
+            "type": "improvement",
+            "on": "ability_score",
+            "value": 2
+        }
+    },
+    {
+        "name": "Extra Attack",
+        "index": "extra_attack",
+        "desc": "Whenever you take the Attack action on your turn, you can attack twice instead of once.",
+        "requirements": { "take_action": "first_attack" },
+        "effect": {
+            "type": "take_action",
+            "on": "first_attack",
+            "value": "bonus_attack"
+        }
+    },
+    {
+        "name": "Fast Movement",
+        "index": "fast_movement",
+        "desc": "Your speed increases by 10 feet while you aren’t wearing heavy armor.",
+        "unable": { "armor": "heavy" },
+        "effect": {
+            "type": "improvement",
+            "on": "movement",
+            "value": 10
+        }
+    },
+    {
+        "name": "Feral Instinct",
+        "index": "feral_instinct",
+        "desc": "Your instincts are so honed that they let you have an advantage on suprising situations.",
+        "effect": [
+            {
+            "desc": "Advantage on initiative rolls.",
+            "type": "advantage",
+            "on": "initiative_turn",
+            "over": "initiative_roll"
+            },
+            {
+            "desc": "Immunity to surprised condition if you aren’t incapacitated, you can act normally on your first turn if you enter your rage before doing anything else.",
+            "type": "immunity",
+            "on": "surprised",
+            "while": "initiative_turn",
+            "requirements": "rage",
+            "unable": "incapacitated"
+            }
+        ]
+    },
+    {
+        "name": "Brutal Critical",
+        "index": "brutal_critical",
+        "desc": "You can roll one additional weapon damage dice when determining the extra damage for a critical hit with a melee attack.",
+        "effect": {
+            "type": "addition",
+            "on": "critical_hit",
+            "over": "hit_dice",
+            "requirements": { "character_level": [9, 10, 11, 12]},
+            "value": 1
+        },
+        "level_improvements": [
+            {
+            "desc": "Two additional dices starting at 13th level",
+            "requirements": { "character_level": [13, 14, 15, 16]},
+            "value": 2
+            },
+            {
+            "desc": "Three additional dices starting at 17th level",
+            "requirements": { "character_level": [17, 18, 19, 20]},
+            "value": 3
+            }
+        ]
+    },
+    {
+        "name": "Relentless Rage",
+        "index": "relentless_rage",
+        "desc": ["Your rage can keep you fighting despite grievous wounds. If you drop to 0 hit points while you’re raging and don’t die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead. Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10."],
+        "requirements": "rage",
+        "effect": {
+            "type": "survival",
+            "on": "death",
+            "saving_throw": {
+                "value": [ 10, "times_used" ],
+                "modifier": "constitution"
+            }
+        }
+    },
+    {
+        "name": "Persistent Rage",
+        "index": "persistent_rage",
+        "desc": "Your rage is so fierce that it ends early only if you fall unconscious or if you choose to end it.",
+        "effect": {
+            "type": "improvement",
+            "over": "rage",
+            "value": { "duration": { "interruptible": ["recast", "knocked_out"] }}
+        }
+    },
+    {
+        "name": "Indomitable Might",
+        "index": "indomitable_might",
+        "desc": "If your total for a Strength check is less than your Strength score, you can use that score in place of the total.",
+        "effect": {
+            "type": "advantage",
+            "on": "ability_check",
+            "value": "character_strength"
+        }
+    },
+    {
+        "name": "Primal Champion",
+        "index": "primal_champion",
+        "desc": "Your Strength and Constitution scores increase by 4. Your maximum for those scores is now 24.",
+        "effect": {
+            "type": "improvement",
+            "over": "ability_max_score",
+            "value": 4
+        }
     }
-}
+]
