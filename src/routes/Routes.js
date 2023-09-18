@@ -22,8 +22,7 @@ export const AppRoutes = () => {
             <div>
             <Nav />
             <Routes>
-                <Route exact path='/' element={<Landing/>} />
-                <Route exact path='/home' element={<Home/>} />
+                <Route exact path='/' element={<Home/>} />
                 <Route exact path='/characters' element={<Characters/>} />
                 <Route exact path='/characters/create' element={<CharacterCreation />} />
                 <Route exact path='/profile' element={<Profile/>} />

@@ -39,7 +39,7 @@ const Nav = () => {
   return (
     <div id={styles.nav}>
       <div id={styles.left}>
-      <a href="/home"><img src={Metabook} alt="Metabook" id={styles.logo}/></a>
+      <a href="/"><img src={Metabook} alt="Metabook" id={styles.logo}/></a>
       </div>      
       <div class="icosaedro">
   <div class="triangulo"></div>
