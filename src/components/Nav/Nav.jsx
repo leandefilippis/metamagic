@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loginWithGoogle } from '../../redux/actions/auth';
-import styles from './Nav.module.css'
+import './Nav.scss'
 import DropdownItem from '../DropdownItem/DropdownItem';
 import Metabook from '../../assets/Metabook.png'
 import Profile from '../../assets/Profile.png'
@@ -37,21 +37,17 @@ const Nav = () => {
   }
 
   return (
-    <div id={styles.nav}>
-      <div id={styles.left}>
-      <a href="/"><img src={Metabook} alt="Metabook" id={styles.logo}/></a>
-      </div>      
-      <div class="icosaedro">
-  <div class="triangulo"></div>
-  <div class="triangulo"></div>
-</div>
-      <div id={styles.right}>
+    <div id="nav">
+      <div id="left">
+        <a href="/"><img src={Metabook} alt="Metabook" id="logo"/></a>
+      </div>
+      <div id="right">
       { user
-        ? <div className={styles.menuContainer} ref={menuRef}>
-          <div className={styles.menuTrigger} onClick={() => {setMenu(!menu)}}>
-            <img src={user?.photoURL} alt="Profile image" className={styles.ProfilePic}/>  
+        ? <div className="menuContainer" ref={menuRef}>
+          <div className="menuTrigger" onClick={() => {setMenu(!menu)}}>
+            <img src={user?.photoURL} alt="Profile image" className="ProfilePic"/>  
           </div>
-          <div className={`${menu? styles.active : styles.inactive}`} id={styles.dropdownMenu}>
+          <div className={`${menu? "active" : "inactive"}`} id="dropdownMenu">
             <ul>
               <DropdownItem img={Profile} text={'Profile'} href={'/profile'}/>
               <DropdownItem img={Edit} text={'Characters'} href={'/characters'}/>
@@ -60,7 +56,7 @@ const Nav = () => {
             </ul>
           </div>
         </div>
-        : <div className={styles.menuTrigger}><button onClick={handleGoogleLogin}>Login with Google</button></div>
+        : <div className="menuTrigger"><button onClick={handleGoogleLogin}>Login with Google</button></div>
       }
       </div>
     </div>

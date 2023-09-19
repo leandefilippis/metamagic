@@ -1,12 +1,11 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Nav from '../components/Nav/Nav';
-import Landing from "../pages/Landing/Landing";
-import Home from '../pages/Home/Home';
-import Characters from '../pages/Characters/Characters';
-import Profile from "../pages/Profile/Profile";
+import Home from '../pages/Home';
+import Characters from '../pages/Characters';
+import CharacterCreation from "../pages/CharacterCreation";
+import Profile from "../pages/Profile";
 import { setUser } from '../redux/slices/authSlice';
 import { useDispatch } from "react-redux";
-import CharacterCreation from "../pages/CharacterCreation/CharacterCreation";
 
 export const AppRoutes = () => {
     const dispatch = useDispatch()

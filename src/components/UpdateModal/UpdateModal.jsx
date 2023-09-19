@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setClasses, setRaces, setSpells } from '../../redux/actions/character'
 import { db, auth } from '../../firebase/firebaseConfig'
-import styles from './UpdateModal.module.css'
+import './UpdateModal.scss'
 
 const initialState = {
     name: "",
@@ -46,9 +46,9 @@ const UpdateModal = ({modal, current, modalRef, closeModal}) => {
         {/* HACER TASK: CAMBIO DE CURRENT SIN DESAPARECER EL MODAL PARA CAMBIAR EDIT ENTRE PERSONAJES (true - false alternado) */}
             {
             modal ? 
-            <div className={styles.modalHeader} ref={modalRef}>
+            <div className="modalHeader" ref={modalRef}>
                 <h2>Editando a: {current.name}</h2>
-                <input className={styles.editInput} name="name" type="text" onChange={(e) => {handleOnChange(e)}} />
+                <input className="editInput" name="name" type="text" onChange={(e) => {handleOnChange(e)}} />
                 <select name="spells" onChange={(e) => {handleOnChange(e)}} placeholder='Spells'>
                     <option value="Not selected" hidden>Select spells</option>
                     {spells?.map((opt) => (

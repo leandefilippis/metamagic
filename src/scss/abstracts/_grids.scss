@@ -1,0 +1,36 @@
+@mixin grid{
+    display: grid;
+    justify-items: center;
+    grid-gap: 10px;
+    padding: 0px 27%;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.alignment{
+    @include grid;
+    padding: 0px 33%;
+    grid-template-columns: repeat(3, 1fr);
+
+    &_justify-center{
+        display: flex;
+        justify-content: center;
+        margin: 15px;
+    }
+}
+
+.background{
+    @include grid;
+}
+
+.dndClass{
+    @include grid;
+
+    &_logo{
+        width: 50%;
+        aspect-ratio: 9/9;
+    }
+}
+
+.race{
+    @include grid;
+}

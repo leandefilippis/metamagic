@@ -1,0 +1,44 @@
+@use './scss/style.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  // font-family: 'Grenze Gotisch', cursive, 'Josefin Sans', sans-serif;
+  // font-family: 'Philosopher', sans-serif;
+  // font-family: 'UnifrakturMaguntia', cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wrapper{
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: #7a4f82;
+}
+
+.button{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+  width: 150px;
+  font-family: Grenze-Gotisch;
+  color: #A68C67;
+  &.selected{
+      width: 150px;
+      border: 2px solid red;
+      border-radius: 5px;
+  }
+  span {
+    margin-top: 10px
+  }
+}
+
+p{
+  font-weight: 600;
+}

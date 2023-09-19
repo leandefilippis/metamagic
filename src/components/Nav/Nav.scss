@@ -1,0 +1,150 @@
+#nav{
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: (100% - margin);
+    margin: 25px 25px 0px 25px;
+
+    /* background: linear-gradient(10deg, #3e1346, #77294f) */
+}
+
+#left{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 50%;
+}
+
+#right{
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    width: 50%;
+}
+#logo{
+    height: 40px;
+    width: 50px;
+}
+
+.menuTrigger img{
+    display: flex;
+    justify-self: flex-end;
+    top: 15px;
+    right: 45px;
+    height: 50px;
+    width: 50px;
+    border: 1px solid #1F191B;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    object-fit: contain;
+}
+
+.menuTrigger button{
+    position:absolute;
+    top: 15px;
+    right: 30px;
+    height: 40px;
+    width: 160px;
+    border-radius: 20px;
+    font-size: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    object-fit: contain;
+}
+
+#dropdownMenu.active{
+    opacity: 1;
+    visibility: visible;
+    transition: 0.3s ease;
+}
+
+#dropdownMenu.inactive{
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+#dropdownMenu{
+    position: absolute;
+    top: 100px;
+    right: 25px;
+    background-color: #1F191B;
+    border-radius: 4px;
+    height: 175px;
+    width: 155px;
+}
+
+#dropdownMenu::before{
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: 21px;
+    height: 20px;
+    width: 20px;
+    background-color: #1F191B;
+    transform: rotate(45deg);
+}
+
+#dropdownMenu ul{
+    text-decoration: none;
+    padding: 0px;
+    margin-top: 15px;
+}
+
+#dropdownMenu ul li{
+    padding: 0px 0px 20px 25px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+#dropdownMenu ul li:hover a{
+    transition: 0.5s;
+    color: #ffffff;
+    opacity: 1;
+    cursor: pointer;
+}
+
+#dropdownMenu ul li:hover img{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.createButton{
+    margin-left: 50px;
+    background: none;
+    color: #ffeded;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.createButton:hover{
+    color:#f0fe57;
+    transition: 0.2s;
+}
+
+
+.icosaedro {
+    width: 100px;
+    height: 100px;
+    position: relative;
+  }
+  
+  .triangulo {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    background-color: white;
+    position: absolute;
+  }
+  
+  .triangulo:nth-child(odd) {
+    border-bottom: 87px solid #3498db; /* Triángulo equilátero */
+  }
+  
+  .triangulo:nth-child(even) {
+    border-bottom: 87px solid #e74c3c; /* Triángulo equilátero */
+  }
+  

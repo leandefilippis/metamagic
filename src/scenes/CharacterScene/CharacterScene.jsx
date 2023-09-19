@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import styles from './CharacterScene.module.css'
+import './CharacterScene.scss'
 
 const CharacterScene = ({ children }) => {
   return (

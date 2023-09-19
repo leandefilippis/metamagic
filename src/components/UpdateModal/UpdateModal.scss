@@ -1,0 +1,20 @@
+.modalHeader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    width: 800px;
+    border-radius: 10px;
+    background-color: rgb(84, 140, 164);
+    border: 3px solid rgb(45, 172, 226);
+}
+
+.editInput{
+    height: 30px;
+    width: 200px;
+    border-radius: 8px;
+}

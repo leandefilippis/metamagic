@@ -1,0 +1,48 @@
+$barlow: 'Barlow Condensed', sans-serif;
+$cinzel: 'Cinzel', serif;
+$cinzel-d: 'Cinzel Decorative', cursive;
+$grenze: 'Grenze', serif;
+$grenze-d: 'Grenze Gotisch', cursive;
+$josefin: 'Josefin Sans', sans-serif;
+$philosopher: 'Philosopher', sans-serif;
+$fraktur: 'UnifrakturMaguntia', cursive;
+
+@font-face {
+    font-family: Barlow;
+    src: local('Barlow'), url(../../assets/fonts/Barlow.ttf) format('ttf');
+}
+
+@font-face {
+    font-family: Cinzel;
+    src: local('Cinzel'), url(../../assets/fonts/Cinzel.ttf) format('ttf');
+}
+
+@font-face {
+    font-family: Cinzel-Decorative;
+    src: local('Cinzel Decorative'), url(../../assets/fonts/Cinzel-Decorative.ttf) format('ttf');
+}
+
+@font-face {
+    font-family: Grenze;
+    src: local('Grenze'), url(../../assets/fonts/Grenze.ttf) format('ttf');
+}
+
+@font-face {
+    font-family: Grenze-Gotisch;
+    src: local('Grenze Gotisch'), url(../../assets/fonts/Grenze-Gotisch.ttf) format('ttf');
+}
+
+@font-face {
+    font-family: Josefin-Sans;
+    src: local('Josefin Sans'), url(../../assets/fonts/Josefin-Sans.ttf) format('ttf');
+}
+
+@font-face {
+    font-family: Philosopher;
+    src: local('Philosopher'), url(../../assets/fonts/Philosopher.ttf) format('ttf');
+}
+
+@font-face {
+    font-family: Unifraktur;
+    src: local('UnifrakturMaguntia'), url(../../assets/fonts/Unifraktur.ttf) format('ttf');
+}

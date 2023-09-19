@@ -1,0 +1,37 @@
+.home{
+    position: absolute;
+    z-index: -2;
+    top: 0px;
+    height: 200%;
+    width: 100%;
+    background-color: #1F191B;
+
+    &_background{
+        position: absolute;
+        z-index: -1;
+        height: 60%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &_wrapper{
+        position: absolute;
+        height: 120vh;
+        width: 100%;
+        background-color: none;
+    }
+
+    &_div{
+        position: relative;
+        display: flex;
+        top: 200px;
+        justify-content: space-evenly;
+    }
+    
+    &_title{
+        font-size: 120px;
+        color: #ffffff;
+        font-family: 'Furgatorio';
+        font-stretch:extra-expanded;
+    }
+}

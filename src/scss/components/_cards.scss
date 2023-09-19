@@ -1,0 +1,10 @@
+@use '../abstracts/' as *;
+
+.characterCard{
+    height: 250px;
+    width: 200px;
+    background: linear-gradient(10deg, #3e1346, #77294f);
+    color: $white;
+    margin: 10px;
+    border-radius: 10px;
+}
