@@ -3,7 +3,7 @@ import { db } from "../../firebase/firebaseConfig";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 // const CLASSES_URL = "https://api.open5e.com/v1/classes/"
-const CLASSES_URL = "http://localhost:8080/api/v1/classes"
+const CLASSES_URL = "https://www.dnd5eapi.co/api/classes"
 const SUBCLASSES_URL = "https://www.dnd5eapi.co/api/subclasses"
 const RACES_URL = "https://www.dnd5eapi.co/api/races"
 const PROFICIENCIES_URL = "https://www.dnd5eapi.co/api/proficiencies"
@@ -47,7 +47,8 @@ export const setClasses = createAsyncThunk(
     async (_, {rejectWithValue}) => {
         try {
             const response = await axios.get(CLASSES_URL)
-            return response.data
+            console.log(response)
+            return response.data.results
         } catch (error) {
             return rejectWithValue(error.message)
         }

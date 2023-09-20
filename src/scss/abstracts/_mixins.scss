@@ -1,0 +1,20 @@
+@mixin grid($columns: 4, $distance: 1fr, $padding: 27%, $gap: 10px){
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat($columns, $distance);
+    padding: 0px $padding;
+    grid-gap: $gap;
+}
+
+@mixin text($family: Grentze, $size: 30px, $color: #ffffff){
+    font-family: $family;
+    font-size: $size;
+    color: $color;
+}
+
+@mixin card{
+    width: 300px;
+    &:hover{
+        transform: translateX(2px)
+    }
+}

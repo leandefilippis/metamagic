@@ -62,26 +62,28 @@ function CharacterCreation() {
     }
 
     return (
-        <div>
-            <button onClick={prevStep} disabled={step === 1}>Anterior</button>
-            <button onClick={nextStep}>Siguiente</button>
-            <button onClick={createCharacter}>Create</button>
-            <p>Name: {characterData.name}</p>
-            <p>Alignment: {characterData.alignment}</p>
-            <p>Class: {characterData.class}</p>
-            <p>Race: {characterData.race}</p>
-            <p>Background: {characterData.background}</p>
+        <div className="root">
+            <div className="root_left">
+                <button onClick={prevStep} disabled={step === 1}>Anterior</button>
+                <button onClick={nextStep}>Siguiente</button>
+                <button onClick={createCharacter}>Create</button>
+                <p className='subtitle'>{characterData.name}</p>
+                <p className='subtitle'>{characterData.alignment}</p>
+                <p className='subtitle'>{characterData.class}</p>
+                <p className='subtitle'>{characterData.race}</p>
+                <p className='subtitle'>{characterData.background}</p>
+            </div>
             {step === 1 && (
-                <PersonalitySelect alignments={alignments} characterData={characterData} setCharacterData={setCharacterData} />
-            )}
-            {step === 2 && (
-                <BackgroundSelect backgrounds={backgrounds} characterData={characterData} setCharacterData={setCharacterData} />
-            )}
-            {step === 3 && (
                 <ClassSelect classes={classes} characterData={characterData} setCharacterData={setCharacterData} />
             )}
-            {step === 4 && (
+            {step === 2 && (
                 <RaceSelect races={races} characterData={characterData} setCharacterData={setCharacterData} />
+            )}
+            {step === 3 && (
+                <BackgroundSelect backgrounds={backgrounds} characterData={characterData} setCharacterData={setCharacterData} />
+            )}
+            {step === 4 && (
+                <PersonalitySelect alignments={alignments} characterData={characterData} setCharacterData={setCharacterData} />
             )}
             {/* {step === 5 && (
                 <LevelSelection races={races} characterData={characterData} setCharacterData={setCharacterData} />

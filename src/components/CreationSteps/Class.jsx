@@ -9,10 +9,8 @@ const ClassSelection = ({ classes, characterData, setCharacterData }) => {
   };
 
   return (
-    <div>
       <div className="dndClass">
-        {classes.map((opt) => (
-          <div>
+        {classes?.map((opt) => (
           <button
             key={opt.name}
             onClick={() => {
@@ -22,12 +20,10 @@ const ClassSelection = ({ classes, characterData, setCharacterData }) => {
             className={`button ${characterData.class === opt.name ? "selected" : ""}`}
           >
             <img src={require(`../../assets/logos/${opt.name}.png`)} alt="" className="dndClass_logo"/>
-            <span className="header">{opt.name}</span>
+            <span>{opt.name}</span>
           </button>
-          </div>
         ))}
       </div>
-    </div>
   );
 }
 

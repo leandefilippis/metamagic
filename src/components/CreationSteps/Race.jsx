@@ -12,9 +12,9 @@ const RaceSelection = ({ races, characterData, setCharacterData }) => {
           <button
             key={opt.index}
             onClick={() => handleRaceSelect(opt.name)}
-            className={characterData.race === opt.name ? "selected" : "button"}
+            className={`button ${characterData.race === opt.name ? "selected" : ""}`}
           >
-            {opt.name}
+            <span>{opt.name}</span>
           </button>
         ))}
       </div>

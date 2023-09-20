@@ -8,3 +8,22 @@
     margin: 10px;
     border-radius: 10px;
 }
+
+.button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    width: 150px;
+    color: #A68C67;
+    border-radius: 30px;
+    &.selected{
+        border: 2px solid $yellow;
+    }
+    span {
+        font-family: $grenze-d;
+        font-size: 30px;
+        font-weight: 500;
+    }
+}

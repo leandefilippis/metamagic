@@ -11,17 +11,15 @@ export default function Home() {
   }, [dispatch])
   
   return (
-    <div className="home">
-      <img src={Wallpaper} className="home_background" />
-      <div className="home_wrapper">
-        <div className="home_div">
+    <div className="root">
+      <img src={Wallpaper} className="root_background" />
+        <div className="root_div">
         <a href="/characters/create">
-          <p className="home_title">Create</p>
+          <p className="root_title">Create</p>
         </a>
-          <p className="home_title">Duel</p>
-          <p className="home_title">Level Up.</p>
+          <p className="root_title">Duel</p>
+          <p className="root_title">Level Up.</p>
         </div>
-      </div>
     </div>
   )
 }

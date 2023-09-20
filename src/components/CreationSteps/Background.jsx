@@ -12,9 +12,9 @@ const BackgroundSelection = ({ backgrounds, characterData, setCharacterData }) =
           <button
             key={opt.index}
             onClick={() => handleBackgroundSelect(opt.name)}
-            className={characterData.background === opt.name ? "selected" : "button"}
+            className={`button ${characterData.background === opt.name ? "selected" : ""}`}
           >
-            {opt.name}
+            <span>{opt.name}</span>
           </button>
         ))}
       </div>

@@ -29,11 +29,9 @@ const PersonalitySelect = ({ alignments, characterData, setCharacterData }) => {
           <button
             key={opt.index}
             onClick={() => handleAlignmentSelect(opt.name)}
-            className={
-              characterData.alignment === opt.name ? "selected" : "button"
-            }
+            className={`button ${characterData.alignment === opt.name ? "selected" : ""}`}
           >
-            {opt.name}
+            <span>{opt.name}</span>
           </button>
         ))}
       </div>
