@@ -1,3 +1,7 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/fonts' as *;
+@use '../abstracts/sizes' as *;
+
 @mixin grid($columns: 4, $distance: 1fr, $padding: 27%, $gap: 10px){
     display: grid;
     justify-items: center;
@@ -17,4 +21,35 @@
     &:hover{
         transform: translateX(2px)
     }
+}
+
+@mixin hide($translateX: -30px){
+    opacity: 0;
+    transform: translateX($translateX);
+    pointer-events: none;
+    cursor: none;
+}
+
+@mixin user_container{
+    display: flex;
+    align-items: center;
+    height: 65px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    color: $white;
+    background-color: $yellow;
+    border-top: 2px solid $white;
+    cursor: pointer;
+}
+
+@mixin user_text($font-size: 20px, $opacity: 1){
+    font-size: $font-size;
+    font-family: Grenze;
+    font-weight: 400;
+    line-height: 17px;
+    opacity: $opacity;
+    transition: all 0.2s ease;
+    cursor: pointer;
 }

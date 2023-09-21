@@ -1,26 +1,26 @@
 @use '../abstracts/' as *;
 
-.root{
-    position: absolute;
-    z-index: -2;
-    top: 0px;
-    height: 200%;
-    width: 100%;
-    background-color: #1F191B;
+// .rooter{
+//     height: 100vh;
+// }
 
+.root{
+    height: 100%;
+    width: 100%;
+    background-color: $pinkish;
     &_background{
-        position: absolute;
-        z-index: -1;
-        height: 50%;
+        height: 100%;
         width: 100%;
-        object-fit: cover;
+        object-fit: contain;
     }
 
     &_div{
-        position: relative;
-        top: 200px;
+        position: absolute;
+        margin: 5%;
+        height: 45%;
+        width: 90%;
         display: flex;
-        justify-content: space-evenly;
+        background: $gray;
     }
 
     &_left{

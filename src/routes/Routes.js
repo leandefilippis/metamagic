@@ -18,7 +18,7 @@ export const AppRoutes = () => {
 
     return (
         <Router>
-            <div>
+            <div className="app">
                 <Sidebar />
                 <Routes>
                     <Route exact path='/' element={<Home/>} />
@@ -31,4 +31,4 @@ export const AppRoutes = () => {
     );
 }
 
-export default Routes
+export default AppRoutes
