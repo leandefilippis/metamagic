@@ -4,13 +4,13 @@ import { setCharacters, deleteCharacter } from '../redux/actions/character'
 import UpdateModal from '../components/UpdateModal/UpdateModal'
 import '../scss/style.scss'
 //////////////////////////////////////////////// 3D ////////////////////////////////////////////////
-import CharacterScene from '../scenes/CharacterScene/CharacterScene'
-import { Environment, OrbitControls, Stars } from '@react-three/drei'
-import Sphere from '../models/Sphere'
-import Model from '../models/Model'
-import Cylinder from '../models/Cylinder'
-import Cube from '../models/Box'
-import D20 from '../models/D20'
+// import CharacterScene from '../scenes/CharacterScene/CharacterScene'
+// import { Environment, OrbitControls, Stars } from '@react-three/drei'
+// import Sphere from '../models/Sphere'
+// import Model from '../models/Model'
+// import Cylinder from '../models/Cylinder'
+// import Cube from '../models/Box'
+// import D20 from '../models/D20'
 //////////////////////////////////////////////// 3D ////////////////////////////////////////////////
 
 const Characters = () => {
@@ -79,7 +79,7 @@ const Characters = () => {
 
 
     </div>
-    <div className="escena">
+    {/* <div className="escena">
           <CharacterScene>
             <color attach="background" args={['#161c24']} />
             <Sphere color='#fafafa' position={[-3, 0, 0]} />
@@ -97,8 +97,8 @@ const Characters = () => {
               <D20 color="#8e00f4" envMapIntensity={0.3} rougness={0} metalness={0} />
             <Stars factor={3} fade speed={1} radius={50}/>
             {/* <Model /> */}
-          </CharacterScene>
-    </div> 
+          {/* </CharacterScene> */}
+    {/* </div> */}
     </>
   )
 }

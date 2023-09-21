@@ -1,5 +1,12 @@
 @use '../abstracts/' as *;
 
 .subtitle{
-    @include text
+    @include text;
+}
+
+.title{
+    font-size: 120px;
+    color: #ffffff;
+    font-weight: 400;
+    font-family: 'Furgatorio';
 }

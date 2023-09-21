@@ -18,8 +18,10 @@
     width: 150px;
     color: #A68C67;
     border-radius: 30px;
+    border: none;
     &.selected{
         border: 2px solid $yellow;
+        box-shadow: rgba(166, 140, 103, 0.25) 0px 54px 55px, rgba(166, 140, 103, 0.12) 0px -12px 30px, rgba(166, 140, 103, 0.12) 0px 4px 6px, rgba(166, 140, 103, 0.17) 0px 12px 13px, rgba(166, 140, 103, 0.09) 0px -3px 5px;
     }
     span {
         font-family: $grenze-d;
@@ -27,3 +29,35 @@
         font-weight: 500;
     }
 }
+
+
+/////////////////////////// CHARACTER CREATION ///////////////////////////
+
+.alignment{
+    @include grid(3, 1fr, 33%);
+
+    &_justify-center{
+        display: flex;
+        justify-content: center;
+        margin: 15px;
+    }
+}
+
+.background{
+    @include grid;
+}
+
+.dndClass{
+    @include grid(4, 0.5fr, 31%);
+
+    &_logo{
+        width: 60%;
+        aspect-ratio: 9/9;
+    }
+}
+
+.race{
+    @include grid;
+}
+
+/////////////////////////// CHARACTER CREATION ///////////////////////////

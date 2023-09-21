@@ -1,5 +1,5 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import Nav from '../components/Nav/Nav';
+import Sidebar from "../components/Sidebar";
 import Home from '../pages/Home';
 import Characters from '../pages/Characters';
 import CharacterCreation from "../pages/CharacterCreation";
@@ -19,13 +19,13 @@ export const AppRoutes = () => {
     return (
         <Router>
             <div>
-            <Nav />
-            <Routes>
-                <Route exact path='/' element={<Home/>} />
-                <Route exact path='/characters' element={<Characters/>} />
-                <Route exact path='/characters/create' element={<CharacterCreation />} />
-                <Route exact path='/profile' element={<Profile/>} />
-            </Routes>
+                <Sidebar />
+                <Routes>
+                    <Route exact path='/' element={<Home/>} />
+                    <Route exact path='/characters' element={<Characters/>} />
+                    <Route exact path='/characters/create' element={<CharacterCreation />} />
+                    <Route exact path='/profile' element={<Profile/>} />
+                </Routes>
             </div>
         </Router>
     );

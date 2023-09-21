@@ -15,10 +15,10 @@ export default function Home() {
       <img src={Wallpaper} className="root_background" />
         <div className="root_div">
         <a href="/characters/create">
-          <p className="root_title">Create</p>
+          <p className="title">Create</p>
         </a>
-          <p className="root_title">Duel</p>
-          <p className="root_title">Level Up.</p>
+          <p className="title">Duel</p>
+          <p className="title">Level Up.</p>
         </div>
     </div>
   )
