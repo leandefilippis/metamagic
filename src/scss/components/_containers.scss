@@ -1,36 +1,15 @@
 @use '../abstracts/' as *;
 
-// .rooter{
-//     height: 100vh;
-// }
-
 .root{
-    height: 100%;
-    width: 100%;
-    background-color: $pinkish;
-    &_background{
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
-    }
+    @include root;
+}
 
-    &_div{
-        position: absolute;
-        margin: 5%;
-        height: 45%;
-        width: 90%;
-        display: flex;
-        background: $gray;
-    }
-
-    &_left{
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        left: 0px;
-        top: 15%;
-        width: 15%;
-    }
+.root_div{
+    height: 98%;
+    width: 98%;
+    background: $gray;
+    position: relative;
+    z-index: 3;
 }
 
 .wrapper{

@@ -12,10 +12,8 @@ export default function Home() {
   
   return (
     <div className="root">
-      <img src={Wallpaper} className="root_background" />
-        <div className="root_div">
-          
-        </div>
+      <div className="root_div">  
+      </div>
     </div>
   )
 }

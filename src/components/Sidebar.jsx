@@ -16,32 +16,38 @@ const Sidebar = () => {
         {
             name: "Arena",
             icon: "shield-plus",
-            path: "/arena",
+            type: "solid",
+            path: "/arena"
         },
         {
             name: "Roll",
             icon: "dice-6",
+            type: "solid",
             path: "/roll",
         },
         {
             name: "Compendium",
             icon: "book",
+            type: "solid",
             path: "/compendium",
         },
         {
             name: "Bookmarks",
             icon: "book-bookmark",
+            type: "solid",
             path: "/bookmarks",
         },
         {
             name: "Graveyard",
             icon: "skull",
+            type: "solid",
             path: "/graveyard",
         },
         {
             name: "Characters",
             icon: "id-card",
             path: "/characters",
+            type: "solid",
         }
     ]
 
@@ -84,7 +90,7 @@ const Sidebar = () => {
                     return (
                         <li key={index}>    
                             <Link to={item.path} onClick={sidebar? toggleSidebar : ""}>
-                                <box-icon name={item.icon} type="solid" color="#fff" />
+                                <box-icon name={item.icon} type={item.type} color="#fff" />
                                 <span className="link_text">{item.name}</span>
                             </Link>
                         </li>

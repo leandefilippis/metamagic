@@ -9,7 +9,7 @@ const Profile = () => {
 
   return (
     <div className="root">
-      <img src={Wallpaper} alt="wallpaper" className='root_background ' />
+      <img src={Wallpaper} alt="wallpaper" className='root_background' />
     </div>
   )
 }

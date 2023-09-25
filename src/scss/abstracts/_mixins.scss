@@ -1,7 +1,8 @@
 @use '../abstracts/colors' as *;
 @use '../abstracts/fonts' as *;
-@use '../abstracts/sizes' as *;
+@use '../abstracts/variables' as *;
 
+///////////////////// LAYOUTS /////////////////////
 @mixin grid($columns: 4, $distance: 1fr, $padding: 27%, $gap: 10px){
     display: grid;
     justify-items: center;
@@ -16,13 +17,6 @@
     color: $color;
 }
 
-@mixin card{
-    width: 300px;
-    &:hover{
-        transform: translateX(2px)
-    }
-}
-
 @mixin hide($translateX: -30px){
     opacity: 0;
     transform: translateX($translateX);
@@ -30,10 +24,23 @@
     cursor: none;
 }
 
+///////////////////// COMPONENTS /////////////////////
+
+@mixin root{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+    width: calc(100% - $sidebar-c);
+    margin-left: $sidebar-c;
+    background-image: url("../../assets/homepaper.jpg");
+    object-fit: contain;
+}
+
 @mixin user_container{
     display: flex;
     align-items: center;
-    height: 65px;
+    height: $user-h;
     width: 100%;
     position: absolute;
     bottom: 0px;
@@ -52,4 +59,11 @@
     opacity: $opacity;
     transition: all 0.2s ease;
     cursor: pointer;
+}
+
+@mixin card{
+    width: 300px;
+    &:hover{
+        transform: translateX(2px)
+    }
 }
