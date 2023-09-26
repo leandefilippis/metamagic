@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCharacters, deleteCharacter } from '../redux/actions/character'
 import UpdateModal from '../components/UpdateModal/UpdateModal'
+import Header from '../components/Header'
 import '../scss/style.scss'
 //////////////////////////////////////////////// 3D ////////////////////////////////////////////////
 // import CharacterScene from '../scenes/CharacterScene/CharacterScene'
@@ -45,40 +46,25 @@ const Characters = () => {
 
   return (
     <div className="root">
-      <div className="background">
+      <Header title="Characters" />
+      <div className="root_body">
         {characters?.map((character) => {
-          return (
-            <div className="characterCard" key={character.name}>
-              <p>{character.name}</p>
-              <p>{character.class}</p>
-              <p>{character.race}</p>
-              <div>
-                <button onClick={() => {setModal(!modal)
-                  setCurrent(character)}}> Edit </button>
-                <button onClick={() => deleteOnClick(character)}>Delete</button>
+            return (
+              <div className="characterCard" key={character.name}>
+                <p>{character.name}</p>
+                <p>{character.class}</p>
+                <p>{character.race}</p>
+                <div>
+                  <button onClick={() => {setModal(!modal)
+                    setCurrent(character)}}> Edit </button>
+                  <button onClick={() => deleteOnClick(character)}>Delete</button>
+                </div>
               </div>
-            </div>
-          )
-        })}
-        <UpdateModal modal={modal} current={current} modalRef={modalRef} closeModal={closeModal} />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            )
+          })}
+          <UpdateModal modal={modal} current={current} modalRef={modalRef} closeModal={closeModal} />
       </div>
+
       {/* <div className="escena">
             <CharacterScene>
               <color attach="background" args={['#161c24']} />

@@ -2,16 +2,42 @@
 
 .root{
     @include root;
-}
+        
+    &_header{
+        @include gradient-p;
+        height: $header-h;
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
 
-.root_div{
-    height: 98%;
-    width: 98%;
-    background: $gray;
-    position: relative;
-    z-index: 3;
-}
+        .header_home{
+            position: absolute;
+            left: 0px;
+            box-icon {
+                opacity: 0.3;
+                height: $header-h;
+                width: $header-h;
+                cursor: pointer;
+                transition: $fast;
+                padding: 0 25px;
+            }
+            box-icon:hover {
+                opacity: 1;
+            }
+        }
+    }
 
+    &_body{
+        height: 100%;
+        width: 100%;
+        background: $whitish;
+        position: relative;
+        z-index: 3;
+    }
+}
 .wrapper{
     display: flex;
     height: 100vh;

@@ -1,5 +1,11 @@
 export const sidebarData = [
     {
+        name: "Compendium",
+        icon: "book-open",
+        type: "solid",
+        path: "/compendium",
+    },
+    {
         name: "Arena",
         icon: "shield-plus",
         type: "solid",
@@ -10,12 +16,6 @@ export const sidebarData = [
         icon: "dice-6",
         type: "solid",
         path: "/roll",
-    },
-    {
-        name: "Compendium",
-        icon: "book",
-        type: "solid",
-        path: "/compendium",
     },
     {
         name: "Bookmarks",

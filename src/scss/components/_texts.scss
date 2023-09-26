@@ -4,9 +4,43 @@
     @include text;
 }
 
-.title{
-    font-size: 120px;
-    color: #ffffff;
+.page_title{
+    position: relative;
+    font-family: $fraktur;
+    font-size: 55px;
+    font-weight: 300;
+    color: $white;
+    width: fit-content;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.breadcrumbs{
+    position: absolute;
+    top: 22px;
+    left: 30px;
+}
+
+.breadcrumbs > *{
+    display: inline-block;
+    margin-right: 10px;
+    opacity: 0.4;
+}
+
+.breadcrumbs .crumb:after {
+    position: absolute;
+    top: 8px;
+    content: "|";
+    margin-left: 10px;
+    color: $white;
+    font-family: $fraktur;
     font-weight: 400;
-    font-family: 'Furgatorio';
+}
+
+.breadcrumbs .crumb a {
+    color: $white;
+    font-family: $cinzel-d;
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 14px;
 }

@@ -12,20 +12,21 @@
     
 
     .logo_wrap{
+        position: relative;
         display: flex;
         align-items: center;
-        height: 38px;
-        padding: 6px 25px 10px;
+        height: 50px;
+        padding: 3px 25px 10px;
         
         a{
             color: $white;
-            font-size: 35px;
+            font-size: 40px;
             font-family: $grenze;
             opacity: 1;
             transition: $fast;
         }
         a:hover {
-            text-shadow: 0 0 8px $yellow;
+            text-shadow: 0 0px 10px $yellow;
         }
     }
 
@@ -34,11 +35,11 @@
         width: 30px;
         line-height: 60px;
         position: absolute;
-        top: 7px;
-        left: 108%;
+        top: 10px;
+        left: 105%;
         opacity: 0.5;
         transition: $faster;
-        transform: translateX(-200%);
+        transform: translateX(-192%);
         cursor: pointer;
     }
     #menu:hover{
@@ -48,7 +49,7 @@
 
 .sidebar ul li{
     display: flex;
-    height: 50px;
+    height: 65px;
     transition: $faster;
 
     a{
@@ -58,22 +59,20 @@
         color: $white;
         
         box-icon{
-            min-height: 25px;
-            min-width: 25px;
-            margin-left: 26px;
+            min-height: 30px;
+            min-width: 30px;
+            margin-left: 23.5px;
+            opacity: 0.5;
         }
 
         .link_text{
             margin-left: 15px;
             font-family: $philosopher;
             font-weight: 600;
-            font-size: 15px;
-            opacity: 1;
+            font-size: 20px;
+            opacity: 0.5;
             transition: $faster;
         }
-    }
-    a:hover { 
-        text-shadow: 0 0 8px $yellow;
     }
 }
 .sidebar ul li:hover{
@@ -91,8 +90,8 @@
         transition: $faster;
 
         img{
-            height: 40px;
-            width: 40px;
+            height: 50px;
+            width: 50px;
             margin-left: $sidebar-m;
             border-radius: 10px;
             object-fit: cover;
@@ -106,10 +105,10 @@
             overflow: hidden;
             margin-left: 8px;
             .user_name{
-                @include user_text(_, 0.8)
+                @include user_text
             }
             .user_title{
-                @include user_text(15px, 0.8)
+                @include user_text(20px, 0.8)
             }
         }
     }
@@ -120,7 +119,7 @@
 
     #logout{
         height: 100%;
-        width: 25%;
+        width: 30%;
         padding: 0 7% 0 5%;
         opacity: 0.5;
         transition: $faster;
