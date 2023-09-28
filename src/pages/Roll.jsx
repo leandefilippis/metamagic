@@ -1,5 +1,5 @@
 //////////////////////////////////////////////// 3D ////////////////////////////////////////////////
-import CharacterScene from '../scenes/CharacterScene/CharacterScene'
+import CharacterScene from '../scenes/canvas/CharacterScene'
 import { Environment, OrbitControls, Stars } from '@react-three/drei'
 import Sphere from '../scenes/models/Sphere'
 import Model from '../scenes/models/Model'
