@@ -1,5 +1,46 @@
+////////////// SIZES //////////////
 $sidebar-w: 250px;
 $sidebar-c: 78px;
 $sidebar-m: 14px;
 $user-h: 80px;
 $header-h: 90px;
+////////////// SIZES //////////////
+
+////////////// FONTS //////////////
+$barlow: 'Barlow Condensed', sans-serif;
+$cinzel: 'Cinzel', serif;
+$cinzel-d: 'Cinzel Decorative', cursive;
+$grenze: 'Grenze', serif;
+$grenze-d: 'Grenze Gotisch', cursive;
+$josefin: 'Josefin Sans', sans-serif;
+$philosopher: 'Philosopher', sans-serif;
+$fraktur: 'UnifrakturMaguntia', cursive;
+////////////// FONTS //////////////
+
+////////////// COLORS //////////////
+$white: rgba(255, 255, 255, 0.9);
+$whitish: rgb(210, 210, 210);
+$white-5: rgba(255, 255, 255, 0.5);
+$white-t: rgba(255, 255, 255, 0.102);
+$yellow: rgb(186, 126, 80);
+$yellow-w: rgb(229, 172, 128);
+$gray: rgb(31, 25, 27);
+$purple: rgb(62, 19, 70);
+$purplish: rgb(119, 41, 107);
+$pinkish: rgb(119, 41, 79);
+
+@mixin gradient-p($angle: 90deg){
+    background: linear-gradient($angle, $purple, $pinkish);
+    z-index: 1;
+} 
+////////////// COLORS //////////////
+
+////////////// TRANSITIONS //////////////
+$instant: all 0.1s ease;
+$faster: all 0.2s ease;
+$fast: all 0.3s ease;
+$medium: all 0.4s ease;
+$slowish: all 0.6s ease;
+$slow: all 0.7s ease;
+$slower: all 1s ease;
+////////////// TRANSITIONS //////////////

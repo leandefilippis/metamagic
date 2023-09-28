@@ -13,10 +13,7 @@ const initialState = {
 
 const UpdateModal = ({modal, current, modalRef, closeModal}) => {
     const dispatch = (useDispatch())
-    const character = useSelector(state => state.character)
-    const classes = useSelector(state => state.character.classes)
-    const races = useSelector(state => state.character.races)
-    const spells = useSelector(state => state.character.spells)
+    const { classes, races, spells } = useSelector(state => state.character)
     const [input, setInput] = useState(initialState)
     const user = useSelector(state => state.auth.user)
 

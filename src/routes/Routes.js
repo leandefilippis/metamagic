@@ -5,6 +5,7 @@ import Characters from '../pages/Characters';
 import CharacterCreation from "../pages/CharacterCreation";
 import Profile from "../pages/Profile";
 import Compendium from "../pages/Compendium";
+import Roll from "../pages/Roll";
 import { setUser } from '../redux/slices/authSlice';
 import { useDispatch } from "react-redux";
 
@@ -27,6 +28,7 @@ export const AppRoutes = () => {
                     <Route exact path='/characters/create' element={<CharacterCreation />} />
                     <Route exact path='/profile' element={<Profile/>} />
                     <Route exact path='/compendium' element={<Compendium/>} />
+                    <Route exact path='/roll' element={<Roll/>} />
                 </Routes>
             </div>
         </Router>

@@ -33,11 +33,18 @@
     &_body{
         height: 100%;
         width: 100%;
-        background: $whitish;
+        background: rgba(0, 0, 0, 0);
         position: relative;
         z-index: 3;
     }
+
+    .escena{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
 }
+
 .wrapper{
     display: flex;
     height: 100vh;
