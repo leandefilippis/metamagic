@@ -8,6 +8,7 @@ import Compendium from "../pages/Compendium";
 import Roll from "../pages/Roll";
 import { setUser } from '../redux/slices/authSlice';
 import { useDispatch } from "react-redux";
+import { ConfiguratorProvider } from "../three/contexts/Configurator";
 
 export const AppRoutes = () => {
     const dispatch = useDispatch()
@@ -19,19 +20,21 @@ export const AppRoutes = () => {
     }
 
     return (
-        <Router>
-            <div className="app">
-                <Sidebar />
-                <Routes>
-                    <Route exact path='/' element={<Home/>} />
-                    <Route exact path='/characters' element={<Characters/>} />
-                    <Route exact path='/characters/create' element={<CharacterCreation />} />
-                    <Route exact path='/profile' element={<Profile/>} />
-                    <Route exact path='/compendium' element={<Compendium/>} />
-                    <Route exact path='/roll' element={<Roll/>} />
-                </Routes>
-            </div>
-        </Router>
+        <ConfiguratorProvider>
+            <Router>
+                <div className="app">
+                    <Sidebar />
+                    <Routes>
+                        <Route exact path='/' element={<Home/>} />
+                        <Route exact path='/characters' element={<Characters/>} />
+                        <Route exact path='/characters/create' element={<CharacterCreation />} />
+                        <Route exact path='/profile' element={<Profile/>} />
+                        <Route exact path='/compendium' element={<Compendium/>} />
+                        <Route exact path='/roll' element={<Roll/>} />
+                    </Routes>
+                </div>
+            </Router>
+        </ConfiguratorProvider>
     );
 }
 
