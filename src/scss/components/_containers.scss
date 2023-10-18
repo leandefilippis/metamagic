@@ -31,9 +31,10 @@
     }
 
     &_body{
-        height: 100%;
+        display: flex;
+        min-height: 100vh;
         width: 100%;
-        background: rgba(0, 0, 0, 0);
+        background: rgb(150, 47, 47);
         position: relative;
         z-index: 3;
     }
@@ -56,8 +57,11 @@
     }
 }
 
-.wrapper{
-    display: flex;
-    height: 100vh;
-    width: 100vw;
+.characters_body{
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(5, 1fr);
+    height: 100%;
+    width: 100%;
+    z-index: 2;
 }

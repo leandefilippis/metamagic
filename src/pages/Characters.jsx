@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setCharacters, deleteCharacter } from '../redux/actions/character'
 import UpdateModal from '../components/UpdateModal/UpdateModal'
 import Header from '../components/Header'
+import CharacterCard from '../components/CharacterCard'
+import flowers from '../assets/flowers.png'
+import trees from '../assets/trees.png'
 import '../scss/style.scss'
 
 const Characters = () => {
@@ -38,22 +41,21 @@ const Characters = () => {
   return (
     <div className="root">
       <Header title="Characters" />
-      <div className="root_body">
+      <div className="characters_body">
+        <img src={trees} alt='' className='characters_background' />
         {characters?.map((character) => {
             return (
-              <div className="characterCard" key={character.name}>
-                <p>{character.name}</p>
-                <p>{character.class}</p>
-                <p>{character.race}</p>
-                <div>
-                  <button onClick={() => {setModal(!modal)
-                    setCurrent(character)}}> Edit </button>
-                  <button onClick={() => deleteOnClick(character)}>Delete</button>
-                </div>
-              </div>
+              <CharacterCard 
+                character={character}
+                modal={modal}
+                setModal={setModal}
+                setCurrent={setCurrent}
+                deleteOnClick={deleteOnClick}
+                key={character.name}
+              />
             )
-          })}
-          <UpdateModal modal={modal} current={current} modalRef={modalRef} closeModal={closeModal} />
+        })}
+        <UpdateModal modal={modal} current={current} modalRef={modalRef} closeModal={closeModal} />
       </div>
     </div>
   )

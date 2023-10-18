@@ -1,13 +1,73 @@
 @use '../abstracts/' as *;
 
-.characterCard{
-    height: 250px;
+/////////////////////////// CHARACTERS ///////////////////////////
+.card{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: fit-content;
     width: 200px;
-    background: linear-gradient(10deg, #3e1346, #77294f);
     color: $white;
     margin: 10px;
     border-radius: 10px;
+    &_visual{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 100px;
+        .card_image{
+            height: 100%;
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+            transition: $fast;
+            filter:grayscale(0.5);
+            &:hover .class_logo{
+                transition: $fast;
+                filter:grayscale(0);
+            }
+        }
+        .class_logo{
+            filter: brightness(5);
+            position: absolute;
+            height: 80px;
+            z-index: 1;
+        }
+    }
+    &_info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 140px;
+        padding-top: 5px;
+        background: linear-gradient(10deg, #3e1346, #77294f);
+        border-radius: 0 0 7px 7px;
+    }
+    &_actions{
+        position: absolute;
+        display: flex;
+        height: 50px;
+        width: 100%;
+        bottom: 0;
+        .action{
+            width: 50%;
+            border: 0;
+            border-radius: 0px 0px 7px 0px;
+            color: white;
+            background: none;
+            cursor: pointer;
+            opacity: 0.2;
+            &:hover{
+                transition: $fast;
+            }
+        }
+        :nth-child(1){
+            border-radius: 0px 0px 0px 7px;
+        }
+    }
 }
+/////////////////////////// CHARACTERS ///////////////////////////
+
 
 .button{
     display: flex;
