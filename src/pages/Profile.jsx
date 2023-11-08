@@ -11,7 +11,7 @@ const Profile = () => {
   return (
     <div className="root">
       <Header title="My profile" />
-      <div className="root_body">  
+      <div className="profile_container">  
       </div>
     </div>
   )

@@ -5,6 +5,7 @@
         
     &_header{
         @include gradient-p;
+        animation: fadein 0.5s ease;
         height: $header-h;
         width: 100%;
         position: relative;
@@ -12,7 +13,12 @@
         justify-content: center;
         align-items: center;
         overflow: hidden;
-
+        box-shadow: 0 2px 2px 2px rgb(62, 19, 70, .3);
+        z-index: 5;
+        &:hover{
+            transition: all 2s ease;
+            opacity: 1;
+        }
         .header_home{
             position: absolute;
             left: 0px;
@@ -34,7 +40,7 @@
         display: flex;
         min-height: 100vh;
         width: 100%;
-        background: rgb(150, 47, 47);
+        background: rgb(255, 255, 255);
         position: relative;
         z-index: 3;
     }
@@ -57,11 +63,40 @@
     }
 }
 
-.characters_body{
+/////////////////////////// COMPONENTS ///////////////////////////
+
+.home_container{
+
+}
+
+.compendium_container{
+    animation: fadein 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+    width: 95%;
+    margin: 0 auto;
+    background-color: $whitish;
+    z-index: 2;
+    .test{
+        display: flex;
+        height: 90%;
+        width: 90%;
+        background-color: red;
+    }
+}
+
+.characters_container{
     display: grid;
-    justify-items: center;
-    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    grid-template-columns: repeat(5, 11rem);
     height: 100%;
     width: 100%;
+    padding-top: 1.5rem;
     z-index: 2;
+}
+
+.profile_container{
+    
 }

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import Header from '../components/Header';
+import apothecary from '../assets/apothecary.png'
 import '../scss/style.scss'
 
 export default function Compendium() {
@@ -11,7 +12,11 @@ export default function Compendium() {
   return (
     <div className="root">
       <Header title="Compendium" />
-      <div className="root_body">  
+      <img src={apothecary} alt='' className='wallpaper' />
+      <div className="compendium_container">
+        <div className="test">
+          
+        </div>
       </div>
     </div>
   )

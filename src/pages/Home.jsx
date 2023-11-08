@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className="root">
       <Header title="Metamagic" />
-      <div className="root_body">  
+      <div className="home_container">  
       </div>
     </div>
   )

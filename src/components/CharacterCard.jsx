@@ -9,6 +9,7 @@ const CharacterCard = ({ character, modal, setModal, setCurrent, deleteOnClick }
                 <img src={homepaper} alt="" className='card_image'/>
                 <img src={require(`../assets/logos/${character.class}.png`)} alt="" className="class_logo"/>
             </div>
+                <div className='hexagon' />
             <div className='card_info'>
                 <span className='character_name'>{character.name}</span>
                 <span className='character_info'>{character.race} | {character.class} </span>

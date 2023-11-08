@@ -5,30 +5,30 @@ export const sidebarData = [
         type: "solid",
         path: "/compendium",
     },
-    {
-        name: "Arena",
-        icon: "shield-plus",
-        type: "solid",
-        path: "/arena"
-    },
+    // {
+    //     name: "Bookmarks",
+    //     icon: "book-bookmark",
+    //     type: "solid",
+    //     path: "/bookmarks",
+    // },
+    // {
+    //     name: "Arena",
+    //     icon: "shield-plus",
+    //     type: "solid",
+    //     path: "/arena"
+    // },
     {
         name: "Roll",
         icon: "dice-6",
         type: "solid",
         path: "/roll",
     },
-    {
-        name: "Bookmarks",
-        icon: "book-bookmark",
-        type: "solid",
-        path: "/bookmarks",
-    },
-    {
-        name: "Graveyard",
-        icon: "skull",
-        type: "solid",
-        path: "/graveyard",
-    },
+    // {
+    //     name: "Graveyard",
+    //     icon: "skull",
+    //     type: "solid",
+    //     path: "/graveyard",
+    // },
     {
         name: "Characters",
         icon: "id-card",

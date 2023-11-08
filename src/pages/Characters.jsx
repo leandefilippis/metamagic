@@ -41,8 +41,8 @@ const Characters = () => {
   return (
     <div className="root">
       <Header title="Characters" />
-      <div className="characters_body">
-        <img src={trees} alt='' className='characters_background' />
+      <img src={trees} alt='' className='wallpaper' />
+      <div className="characters_container">
         {characters?.map((character) => {
             return (
               <CharacterCard 

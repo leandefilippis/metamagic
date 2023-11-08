@@ -14,7 +14,7 @@
         position: relative;
         display: flex;
         align-items: center;
-        height: 80px;
+        height: 70px;
         padding: 3px 25px 10px;
         
         a{
@@ -34,7 +34,7 @@
         width: 30px;
         line-height: 75px;
         position: absolute;
-        top: 10px;
+        top: 5px;
         left: 105%;
         opacity: 0.5;
         transition: $faster;
@@ -112,7 +112,7 @@
             flex-direction: column;
             width: fit-content;
             overflow: hidden;
-            margin-left: 8px;
+            margin-left: 10px;
             .user_name{
                 @include user_text
             }
@@ -199,7 +199,7 @@
 ////////////////// BREADCRUMBS //////////////////
 .breadcrumbs{
     position: absolute;
-    top: 25px;
+    top: 19px;
     left: 30px;
 }
 
